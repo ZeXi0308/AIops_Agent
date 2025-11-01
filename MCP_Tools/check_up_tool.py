@@ -1,0 +1,101 @@
+from typing import Dict, Any, List
+from mcp.server.fastmcp import FastMCP
+import paramiko
+import asyncio
+import re
+import uvicorn
+import contextlib
+from starlette.applications import Starlette
+from starlette.routing import Mount
+
+mcp = FastMCP(name="UpgradePackageChecker")
+
+def create_ssh_connection(server: str, port: int, username: str, password: str, timeout: float):
+    client = paramiko.SSHClient()
+    client.set_missing_host_key_policy(paramiko.AutoAddPolicy())
+    client.connect(server, port, username, password, timeout=timeout, look_for_keys=False)
+    channel = client.invoke_shell()
+    return client, channel
+
+async def _get_upgrade_packages(ip: str) -> List[str]:
+    
+    server, port, username, password, timeout = ip, 2023, "muser", "muser", 10.0
+    try:
+        client, channel = await asyncio.to_thread(
+            create_ssh_connection, server, port, username, password, timeout
+        )
+        try:
+            await asyncio.to_thread(channel.send, "show ManagedElement=1,SystemFunctions=1,SwM=1\n")
+            await asyncio.sleep(1)
+            output = ""
+            while await asyncio.to_thread(channel.recv_ready):
+                part = await asyncio.to_thread(channel.recv, 2048)
+                output += part.decode("utf-8", errors="ignore")
+                await asyncio.sleep(0.5)
+            packages = re.findall(
+                r'^[ \t]*UpgradePackage=([A-Za-z0-9\-/]+)', 
+                output, 
+                flags=re.MULTILINE
+            )
+            return packages
+        finally:
+            client.close()
+    except Exception as e:
+        raise Exception(f"SSH check failed for {ip}: {e}")
+
+@mcp.tool(
+    name="check_UP_number",
+    description="Check the number of Upgrade Packages on the device(DU/baseband) via SSH. This tool connects to the target device(DU or baseband) and returns a list of all detected Upgrade Packages. The only input should be Du_IP.")
+async def check_upgrade_packages(
+    du_ip: str,
+    threshold: int = 3
+) -> Dict[str, Any]:
+    """
+    Parameters
+    ----------
+    du_ip : str
+    threshold : int, optional
+
+    Returns
+    -------
+    Dict[str, Any]
+        {
+          "count": int,
+          "packages": List[str],
+          "threshold": int,
+          "status": "PASS" | "FAIL",
+          "detail": str
+        }
+    """
+    packages = await _get_upgrade_packages(du_ip)
+    count = len(packages)
+    if count > threshold:
+        status, detail = "FAIL", "Too many UP detected — installation may be at risk"
+    else:
+        status, detail = "PASS", "Within acceptable range"
+
+    return {
+        "count": count,
+        "packages": packages,
+        "threshold": threshold,
+        "status": status,
+        "detail": detail
+    }
+
+@contextlib.asynccontextmanager
+async def lifespan(app):
+    async with mcp.session_manager.run():
+        yield
+
+app = Starlette(
+    routes=[Mount("/", mcp.streamable_http_app())],
+    lifespan=lifespan,
+)
+
+if __name__ == "__main__":
+    uvicorn.run(
+        app,
+        host="127.0.0.1",
+        port=8002,       
+        log_level="info",
+    )

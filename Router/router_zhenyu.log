@@ -1,0 +1,10 @@
+nohup: ignoring input
+/Router/router_collect2_EAI_zhenyu.py:327: DeprecationWarning: 
+        on_event is deprecated, use lifespan event handlers instead.
+
+        Read more about it in the
+        [FastAPI docs for Lifespan Events](https://fastapi.tiangolo.com/advanced/events/).
+        
+  @app.on_event("startup")
+INFO:     Will watch for changes in these directories: ['/Router']
+ERROR:    [Errno 98] Address already in use

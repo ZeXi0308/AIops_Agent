@@ -1,0 +1,6 @@
+INFO:     Started server process [817305]
+INFO:     Waiting for application startup.
+INFO:JIRAExtractor:JIRAExtractor server starting
+INFO:mcp.server.streamable_http_manager:StreamableHTTP session manager started
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://127.0.0.1:8004 (Press CTRL+C to quit)

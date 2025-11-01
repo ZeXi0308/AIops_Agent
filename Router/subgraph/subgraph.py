@@ -1,0 +1,114 @@
+"""
+subgraph.py
+使用 LangGraph 的 interrupt API 来实现断点
+"""
+
+from typing import Dict, Any
+from langgraph.graph import StateGraph, END, START
+from langgraph.checkpoint.memory import InMemorySaver
+from langgraph.types import Command, interrupt
+from typing import TypedDict, Optional
+
+
+
+class SubgraphState(TypedDict, total=False):
+    name: str
+    age: str
+    AI_Response: str
+    thinking:str
+    human_in_the_loop:str
+    status: Optional[str]
+
+
+
+def ask_name(state: SubgraphState):
+    # 使用 state 内置的 interrupt 方法
+    print("[子图] ask name state",state)
+    value = interrupt({"AI_Response": "请输入你的名字1"})
+    state["name"] = value
+    print("[子图] resumed")
+    print("[子图] ask name state2",state)
+    return state
+
+def ask_age(state: SubgraphState):
+    print("[子图] ask age state",state)
+    value = interrupt({"AI_Response": "请输入你的年龄1"})
+    state["age"] = value
+    return state
+
+
+
+
+def Confirmation(state: SubgraphState):
+    print("[子图] ask age state",state)
+    resume_data  = interrupt(
+                {
+                    "human_in_the_loop": "please approve the tools",
+                }
+            )
+    print("resume type ",resume_data)
+    resume_type = resume_data.get("type")
+    print("resume type is",resume_type)
+    if resume_type == "accept":
+        return Command(goto="Done")
+
+
+def done(state: SubgraphState):
+    """
+    完成节点
+    """
+    state["status"] = "done"
+    state["AI_Response"] = f"你好，{state['name']}，你 {state['age']} 岁啦！子图执行完成。"
+    #return state
+    return {
+                           
+                "AI_Response": state["AI_Response"], 
+                "human_in_the_loop": "", 
+                "status":state["status"],
+            }
+
+# 构建子图
+graph = StateGraph(SubgraphState)
+graph.add_node("AskName", ask_name)
+graph.add_node("AskAge", ask_age)
+graph.add_node("Confirmation", Confirmation)
+graph.add_node("Done", done)
+
+
+
+
+graph.add_edge(START, "AskName")
+graph.add_edge("AskName", "AskAge")
+graph.add_edge("AskAge", "Confirmation")
+#graph.add_edge("AskAge", "Done")
+graph.add_edge("Done", END)
+
+# 用内存存储器来支持 interrupt 恢复
+memory = InMemorySaver()
+app = graph.compile(checkpointer=memory)
+
+
+def run(session_id: str, input_data: Dict[str, Any]) -> Dict[str, Any]:
+    config = {"configurable": {"thread_id": session_id}}
+    try:
+        print("[子图]input_data ",input_data)
+        if "text" in input_data:
+            print("text found run sec,")
+            command = Command(resume=input_data.get("text"))
+            print("text found run sec,",command)
+            stream = app.stream(command, config=config)
+            #result = next(stream)
+        #else:
+            # 第一次执行
+            #stream = app.stream(input_data, config=config)
+        else:
+            command = Command(resume=input_data)
+            print("text found run first,",command)
+            stream = app.stream(command, config=config)
+        result = None
+        for step in stream:   # 消费生成器
+            result = step
+
+        return result if result else {"status": "error", "message": "empty result"}
+    except Exception as e:
+        return {"status": "error", "message": str(e)}

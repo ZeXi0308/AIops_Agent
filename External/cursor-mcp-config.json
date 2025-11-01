@@ -1,0 +1,11 @@
+{
+  "mcpServers": {
+    "chart-local": {
+      "command": "node",
+      "args": ["/Users/zhaozhenyu/Desktop/MCP_CHARt/mcp-server-chart/build/index.js"],
+      "env": {
+        "VIS_REQUEST_SERVER": "http://localhost:3000/api/gpt-vis"
+      }
+    }
+  }
+}

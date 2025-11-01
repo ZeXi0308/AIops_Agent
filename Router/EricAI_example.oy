@@ -1,0 +1,214 @@
+# Apache 2.0 license
+# Source vllm 
+
+#https://platform.openai.com/docs/guides/function-calling
+
+import asyncio
+import json
+from typing import Any, Callable, Dict, List, Tuple
+
+from openai.types import Model
+
+from ericai import AsyncEricAI
+from openai.types.chat import ChatCompletionMessageParam, ChatCompletionToolParam
+from pydantic import BaseModel
+
+MODEL = "mistralai/Mistral-Small-24B-Instruct-2501"
+#MODEL = "nvidia/Llama-3_1-Nemotron-Ultra-253B-v1-FP8"
+#MODEL = "deepseek-ai/DeepSeek-R1-0528"
+# Modify OpenAI's API key and API base to use vLLM's API server.
+#client = AsyncEricAI(base_url="http://127.0.0.1:8000/backend/v1")
+client = AsyncEricAI()
+#client = AsyncEricAI(base_url="https://ericai-test.sero.gic.ericsson.se/backendsso/v1")
+
+
+# For simulation of a tool call
+def get_current_weather_fake_text(city: str, state: str, unit: 'str'):
+    return ("The weather in Dallas, Texas is 85 degrees fahrenheit. It is "
+            "partly cloudly, with highs in the 90's.")
+
+
+def get_current_weather_fake_dict(city: str, state: str, unit: 'str'):
+    # Mock tool call response to simulate a tool's return
+    fake_tool_call_result: Dict[str, str|float] = {
+        "city": "Dallas",
+        "state": "TX",
+        "unit": "fahrenheit",
+        "temperature": 75  # Mock temperature data
+    }
+    return json.dumps(fake_tool_call_result)
+
+
+# get the list of models
+async def getNemoModel():
+
+    models:List[Model] = []
+    paginator = client.models.list()
+    #get all pages
+    async for model in paginator:
+            models.append(model)
+
+
+    # print(models)
+    # find the model which contains nemo in its name
+    nemo_model = next((model for model in models if MODEL.lower() in model.id.lower()), None)
+
+    # print(nemo_model)
+    return nemo_model
+
+
+messages: List[ChatCompletionMessageParam] = [
+    {
+        "role": "system",
+        "content": "Provide responses as concisely as possible, focusing on factual information.",
+    },
+    {
+        "role": "user",
+        "content": "Hi! How are you doing today?"
+    },
+    {
+        "role": "assistant",
+        "content": "I'm doing well! How can I help you?"
+    },
+    {
+        "role": "user",
+        "content": "Can you tell me what the temperate will be in Dallas, in fahrenheit?",
+    },
+]
+
+
+class ToolInfo(BaseModel):
+    description: str
+    fn_name: Callable[..., str]
+    tool_definition: ChatCompletionToolParam
+
+
+get_weather_tool: ToolInfo = ToolInfo(
+    description="Get the current weather fake tool call",
+    fn_name=get_current_weather_fake_dict,
+    tool_definition={
+        "type": "function",
+        "function": {
+            "name": "get_current_weather",
+            "description": "Get the current weather in a given location",
+            "parameters": {
+                "type": "object",
+                "properties": {
+                    "city": {
+                        "type":
+                        "string",
+                        "description":
+                        "The city to find the weather for, e.g. 'San Francisco'"
+                    },
+                    "state": {
+                        "type":
+                        "string",
+                        "description":
+                        "the two-letter abbreviation for the state that the city is"
+                        " in, e.g. 'CA' which would mean 'California'"
+                    },
+                    "unit": {
+                        "type": "string",
+                        "description": "The unit to fetch the temperature in",
+                        "enum": ["celsius", "fahrenheit"]
+                    }
+                },
+                "required": ["city", "state", "unit"]
+            }
+        }
+    }
+)
+
+#
+# maintain a list of tools
+tool_inventory: List[ToolInfo] = [get_weather_tool]
+
+#prepare fast lookup of same list
+tool_dictionary: Dict[str, ToolInfo] = {}
+for tool in tool_inventory:
+    tool_dictionary[tool.tool_definition["function"]["name"]] = tool
+
+
+def validate_allow_tool_call(tool_call: ToolInfo, args: Dict[str, Any]) -> bool:
+    # TODO: add validation before a tool call
+    # e.g. check if the tool is allowed to be called using a shield LLM with a good prompt!
+    return True
+
+
+def validate_tool_call_result(
+        tool_call: ToolInfo, 
+        args: Dict[str, Any], 
+        tool_call_result: str
+) -> bool:
+    # TODO: add validation for tool call result
+    # e.g. use a shield LLM with a good prompt!
+    return True
+
+
+async def test_tools():
+    model = await getNemoModel()
+
+    if model is None:
+        print("No model found")
+        return
+
+    print(f"Model: {model.id}")    
+    model_id = model.id
+
+#    model_id = "mistralai/Mistral-Nemo-Instruct-2407"
+
+
+    tools = [tool_inventory[0].tool_definition]
+
+    chat_completion = await client.chat.completions.create(
+        messages=messages,
+        model=model_id,
+        tools=tools
+    )
+    print("1" + "=" * 40)
+    print("Chat (non-streaming) completion1 results:")
+    print(chat_completion)
+
+    if chat_completion.choices[0].message.tool_calls is None:
+        print("No tool calls found")
+        return
+
+
+    arguments = chat_completion.choices[0].message.tool_calls[0].function.arguments
+
+    print(f"Tool call arguments: {arguments}")
+    print("\n\n")
+
+    tools_called: List[Tuple[str, str]] = []
+    for call in chat_completion.choices[0].message.tool_calls:
+        tool_to_call = tool_dictionary[call.function.name]
+        args = json.loads(call.function.arguments)
+        if not validate_allow_tool_call(tool_to_call, args):
+            raise ValueError("Tool call not allowed - Unsafe")
+        result = tool_to_call.fn_name(**args)
+        if not validate_tool_call_result(tool_to_call, args, result):
+            raise ValueError("Tool call result not allowed - Unsafe")   
+        tool_call = (call.id, result)
+        tools_called.append(tool_call)
+
+    for (tool_call_id, tool_result) in tools_called:
+        newmsg: ChatCompletionMessageParam = {
+            "role": "tool",
+            "content": tool_result,
+            "tool_call_id": tool_call_id,
+        }
+        messages.append(newmsg)
+
+    print(f"Tools called: {tools_called}")
+    print(f"messages: {messages}")
+
+    chat_completion2 = await client.chat.completions.create(
+        messages=messages,
+        model=model_id,
+        tools=tools
+    )
+
+    print(f"End result: {chat_completion2.choices[0].message.content}")
+
+asyncio.run(test_tools())
+

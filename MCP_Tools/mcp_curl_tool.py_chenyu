@@ -1,0 +1,54 @@
+from typing import Dict
+from mcp.server.fastmcp import FastMCP
+import httpx
+
+# 创建 FastMCP 实例
+mcp = FastMCP(name="InfobankService")
+
+@mcp.tool(
+    name="get_latest_UP_version",
+    description="Retrieve the latest available Upgrade Package (UP) versions.This tool queries the InfoBank API to obtain the most recent upgrade packages based on the user's request. You should get the number_versions from user's query."
+)
+async def get_product_revisions(number_versions: int) -> Dict[int, str]:
+    """
+    调用 Infobank REST 接口，获取固定产品编号 CXP2010174_2 的最新 N 个版本号。
+
+    Parameters
+    ----------
+    number_versions : int
+        要返回的最新版本数量
+
+    Returns
+    -------
+    List[str]
+        版本号列表，如 ["R40A10", "R40A09", ...]
+    """
+    product_number = "CXP2010174_2"
+    confidence_level = 3
+    confidence_level_depth = 0
+
+    url = "https://infobank.npee.gic.ericsson.se/infobank/rest/v2/product/revision"
+    params = {
+        "product_number": product_number,
+        "latest": number_versions,
+        "confidence_level": confidence_level,
+        "confidence_level_depth": confidence_level_depth
+    }
+
+    async with httpx.AsyncClient(timeout=10.0) as client:
+        response = await client.get(url, params=params)
+        response.raise_for_status()
+        data = response.json()
+
+    product_number = "CXP2010174_2"
+    versions = {
+        idx + 1: f"{product_number}-{item.get('version')}"
+        for idx, item in enumerate(data)
+        if item.get("version")
+    }
+    return versions
+
+if __name__ == "__main__":
+    mcp.run(
+        transport="streamable-http",
+    )

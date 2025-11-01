@@ -1,0 +1,4 @@
+nohup: ignoring input
+Streamable HTTP Server listening on http://localhost:8005/mcp
+(node:653749) MaxListenersExceededWarning: Possible EventEmitter memory leak detected. 11 SIGINT listeners added to [process]. MaxListeners is 10. Use emitter.setMaxListeners() to increase limit
+(Use `node --trace-warnings ...` to show where the warning was created)

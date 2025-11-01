@@ -1,0 +1,411 @@
+nohup: ignoring input
+INFO:     Started server process [873383]
+INFO:     Waiting for application startup.
+INFO:JIRAExtractor:JIRAExtractor server starting
+INFO:mcp.server.streamable_http_manager:StreamableHTTP session manager started
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://127.0.0.1:8004 (Press CTRL+C to quit)
+INFO:     127.0.0.1:57746 - "POST /mcp/ HTTP/1.1" 307 Temporary Redirect
+INFO:     127.0.0.1:60240 - "POST /mcp/ HTTP/1.1" 307 Temporary Redirect
+INFO:mcp.server.streamable_http_manager:Created new transport with session ID: dd5b462a1dc042489f4094d44c6832af
+INFO:     127.0.0.1:60240 - "POST /mcp HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60254 - "POST /mcp/ HTTP/1.1" 307 Temporary Redirect
+INFO:     127.0.0.1:60270 - "GET /mcp/ HTTP/1.1" 307 Temporary Redirect
+INFO:     127.0.0.1:60254 - "POST /mcp HTTP/1.1" 202 Accepted
+INFO:     127.0.0.1:60270 - "GET /mcp HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60274 - "POST /mcp/ HTTP/1.1" 307 Temporary Redirect
+INFO:     127.0.0.1:60274 - "POST /mcp HTTP/1.1" 200 OK
+INFO:mcp.server.lowlevel.server:Processing request of type ListToolsRequest
+INFO:     127.0.0.1:60286 - "DELETE /mcp/ HTTP/1.1" 307 Temporary Redirect
+INFO:mcp.server.streamable_http:Terminating session: dd5b462a1dc042489f4094d44c6832af
+INFO:     127.0.0.1:60286 - "DELETE /mcp HTTP/1.1" 200 OK
+INFO:     127.0.0.1:41488 - "POST /mcp/ HTTP/1.1" 307 Temporary Redirect
+INFO:mcp.server.streamable_http_manager:Created new transport with session ID: a2ef9f71f23d4ea099d22ee573adc422
+INFO:     127.0.0.1:41488 - "POST /mcp HTTP/1.1" 200 OK
+INFO:     127.0.0.1:41498 - "POST /mcp/ HTTP/1.1" 307 Temporary Redirect
+INFO:     127.0.0.1:41512 - "GET /mcp/ HTTP/1.1" 307 Temporary Redirect
+INFO:     127.0.0.1:41498 - "POST /mcp HTTP/1.1" 202 Accepted
+INFO:     127.0.0.1:41512 - "GET /mcp HTTP/1.1" 200 OK
+INFO:     127.0.0.1:41526 - "POST /mcp/ HTTP/1.1" 307 Temporary Redirect
+INFO:     127.0.0.1:41526 - "POST /mcp HTTP/1.1" 200 OK
+INFO:mcp.server.lowlevel.server:Processing request of type ListToolsRequest
+INFO:     127.0.0.1:41542 - "DELETE /mcp/ HTTP/1.1" 307 Temporary Redirect
+INFO:mcp.server.streamable_http:Terminating session: a2ef9f71f23d4ea099d22ee573adc422
+INFO:     127.0.0.1:41542 - "DELETE /mcp HTTP/1.1" 200 OK
+INFO:     127.0.0.1:38858 - "POST /mcp/ HTTP/1.1" 307 Temporary Redirect
+INFO:mcp.server.streamable_http_manager:Created new transport with session ID: 6981cbd6f3c648698ae74f3216e9411c
+INFO:     127.0.0.1:38858 - "POST /mcp HTTP/1.1" 200 OK
+INFO:     127.0.0.1:38864 - "POST /mcp/ HTTP/1.1" 307 Temporary Redirect
+INFO:     127.0.0.1:38866 - "GET /mcp/ HTTP/1.1" 307 Temporary Redirect
+INFO:     127.0.0.1:38864 - "POST /mcp HTTP/1.1" 202 Accepted
+INFO:     127.0.0.1:38866 - "GET /mcp HTTP/1.1" 200 OK
+INFO:     127.0.0.1:38872 - "POST /mcp/ HTTP/1.1" 307 Temporary Redirect
+INFO:     127.0.0.1:38872 - "POST /mcp HTTP/1.1" 200 OK
+INFO:mcp.server.lowlevel.server:Processing request of type ListToolsRequest
+INFO:     127.0.0.1:38882 - "DELETE /mcp/ HTTP/1.1" 307 Temporary Redirect
+INFO:mcp.server.streamable_http:Terminating session: 6981cbd6f3c648698ae74f3216e9411c
+INFO:     127.0.0.1:38882 - "DELETE /mcp HTTP/1.1" 200 OK
+INFO:     127.0.0.1:38886 - "POST /mcp/ HTTP/1.1" 307 Temporary Redirect
+INFO:mcp.server.streamable_http_manager:Created new transport with session ID: 04f997ebae7a4724b21cb3b246bac88d
+INFO:     127.0.0.1:38886 - "POST /mcp HTTP/1.1" 200 OK
+INFO:     127.0.0.1:38892 - "POST /mcp/ HTTP/1.1" 307 Temporary Redirect
+INFO:     127.0.0.1:38896 - "GET /mcp/ HTTP/1.1" 307 Temporary Redirect
+INFO:     127.0.0.1:38892 - "POST /mcp HTTP/1.1" 202 Accepted
+INFO:     127.0.0.1:38896 - "GET /mcp HTTP/1.1" 200 OK
+INFO:     127.0.0.1:38900 - "POST /mcp/ HTTP/1.1" 307 Temporary Redirect
+INFO:     127.0.0.1:38900 - "POST /mcp HTTP/1.1" 200 OK
+INFO:mcp.server.lowlevel.server:Processing request of type ListToolsRequest
+INFO:     127.0.0.1:38914 - "DELETE /mcp/ HTTP/1.1" 307 Temporary Redirect
+INFO:mcp.server.streamable_http:Terminating session: 04f997ebae7a4724b21cb3b246bac88d
+INFO:     127.0.0.1:38914 - "DELETE /mcp HTTP/1.1" 200 OK
+INFO:     127.0.0.1:37278 - "POST /mcp/ HTTP/1.1" 307 Temporary Redirect
+INFO:mcp.server.streamable_http_manager:Created new transport with session ID: 85787df76dad4a73a57c5124a38bbafa
+INFO:     127.0.0.1:37278 - "POST /mcp HTTP/1.1" 200 OK
+INFO:     127.0.0.1:37280 - "POST /mcp/ HTTP/1.1" 307 Temporary Redirect
+INFO:     127.0.0.1:37286 - "GET /mcp/ HTTP/1.1" 307 Temporary Redirect
+INFO:     127.0.0.1:37280 - "POST /mcp HTTP/1.1" 202 Accepted
+INFO:     127.0.0.1:37286 - "GET /mcp HTTP/1.1" 200 OK
+INFO:     127.0.0.1:37298 - "POST /mcp/ HTTP/1.1" 307 Temporary Redirect
+INFO:     127.0.0.1:37298 - "POST /mcp HTTP/1.1" 200 OK
+INFO:mcp.server.lowlevel.server:Processing request of type ListToolsRequest
+INFO:     127.0.0.1:37302 - "DELETE /mcp/ HTTP/1.1" 307 Temporary Redirect
+INFO:mcp.server.streamable_http:Terminating session: 85787df76dad4a73a57c5124a38bbafa
+INFO:     127.0.0.1:37302 - "DELETE /mcp HTTP/1.1" 200 OK
+INFO:     127.0.0.1:37310 - "POST /mcp/ HTTP/1.1" 307 Temporary Redirect
+INFO:mcp.server.streamable_http_manager:Created new transport with session ID: d9e1721f68664580af2f2dc56ffa6e52
+INFO:     127.0.0.1:37310 - "POST /mcp HTTP/1.1" 200 OK
+INFO:     127.0.0.1:37312 - "POST /mcp/ HTTP/1.1" 307 Temporary Redirect
+INFO:     127.0.0.1:37312 - "POST /mcp HTTP/1.1" 202 Accepted
+INFO:     127.0.0.1:37318 - "GET /mcp/ HTTP/1.1" 307 Temporary Redirect
+INFO:     127.0.0.1:37318 - "GET /mcp HTTP/1.1" 200 OK
+INFO:     127.0.0.1:37328 - "POST /mcp/ HTTP/1.1" 307 Temporary Redirect
+INFO:     127.0.0.1:37328 - "POST /mcp HTTP/1.1" 200 OK
+INFO:mcp.server.lowlevel.server:Processing request of type ListToolsRequest
+INFO:     127.0.0.1:37338 - "DELETE /mcp/ HTTP/1.1" 307 Temporary Redirect
+INFO:mcp.server.streamable_http:Terminating session: d9e1721f68664580af2f2dc56ffa6e52
+INFO:     127.0.0.1:37338 - "DELETE /mcp HTTP/1.1" 200 OK
+INFO:     127.0.0.1:33814 - "POST /mcp/ HTTP/1.1" 307 Temporary Redirect
+INFO:mcp.server.streamable_http_manager:Created new transport with session ID: bf76cf1d6e054da5bedc25ee706b458b
+INFO:     127.0.0.1:33814 - "POST /mcp HTTP/1.1" 200 OK
+INFO:     127.0.0.1:33818 - "POST /mcp/ HTTP/1.1" 307 Temporary Redirect
+INFO:     127.0.0.1:33832 - "GET /mcp/ HTTP/1.1" 307 Temporary Redirect
+INFO:     127.0.0.1:33818 - "POST /mcp HTTP/1.1" 202 Accepted
+INFO:     127.0.0.1:33832 - "GET /mcp HTTP/1.1" 200 OK
+INFO:     127.0.0.1:33836 - "POST /mcp/ HTTP/1.1" 307 Temporary Redirect
+INFO:     127.0.0.1:33836 - "POST /mcp HTTP/1.1" 200 OK
+INFO:mcp.server.lowlevel.server:Processing request of type ListToolsRequest
+INFO:     127.0.0.1:33840 - "DELETE /mcp/ HTTP/1.1" 307 Temporary Redirect
+INFO:mcp.server.streamable_http:Terminating session: bf76cf1d6e054da5bedc25ee706b458b
+INFO:     127.0.0.1:33840 - "DELETE /mcp HTTP/1.1" 200 OK
+INFO:     127.0.0.1:33862 - "POST /mcp/ HTTP/1.1" 307 Temporary Redirect
+INFO:mcp.server.streamable_http_manager:Created new transport with session ID: 16df4e6c986c4ab398b40f8acb16094b
+INFO:     127.0.0.1:33862 - "POST /mcp HTTP/1.1" 200 OK
+INFO:     127.0.0.1:33876 - "POST /mcp/ HTTP/1.1" 307 Temporary Redirect
+INFO:     127.0.0.1:33892 - "GET /mcp/ HTTP/1.1" 307 Temporary Redirect
+INFO:     127.0.0.1:33876 - "POST /mcp HTTP/1.1" 202 Accepted
+INFO:     127.0.0.1:33892 - "GET /mcp HTTP/1.1" 200 OK
+INFO:     127.0.0.1:33896 - "POST /mcp/ HTTP/1.1" 307 Temporary Redirect
+INFO:     127.0.0.1:33896 - "POST /mcp HTTP/1.1" 200 OK
+INFO:mcp.server.lowlevel.server:Processing request of type ListToolsRequest
+INFO:     127.0.0.1:33910 - "DELETE /mcp/ HTTP/1.1" 307 Temporary Redirect
+INFO:mcp.server.streamable_http:Terminating session: 16df4e6c986c4ab398b40f8acb16094b
+INFO:     127.0.0.1:33910 - "DELETE /mcp HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58428 - "POST /mcp/ HTTP/1.1" 307 Temporary Redirect
+INFO:mcp.server.streamable_http_manager:Created new transport with session ID: 15ff44c0ee504d3eb7a791eef259fc62
+INFO:     127.0.0.1:58428 - "POST /mcp HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58438 - "POST /mcp/ HTTP/1.1" 307 Temporary Redirect
+INFO:     127.0.0.1:58442 - "GET /mcp/ HTTP/1.1" 307 Temporary Redirect
+INFO:     127.0.0.1:58438 - "POST /mcp HTTP/1.1" 202 Accepted
+INFO:     127.0.0.1:58442 - "GET /mcp HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58450 - "POST /mcp/ HTTP/1.1" 307 Temporary Redirect
+INFO:     127.0.0.1:58450 - "POST /mcp HTTP/1.1" 200 OK
+INFO:mcp.server.lowlevel.server:Processing request of type ListToolsRequest
+INFO:     127.0.0.1:58464 - "DELETE /mcp/ HTTP/1.1" 307 Temporary Redirect
+INFO:mcp.server.streamable_http:Terminating session: 15ff44c0ee504d3eb7a791eef259fc62
+INFO:     127.0.0.1:58464 - "DELETE /mcp HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58650 - "POST /mcp/ HTTP/1.1" 307 Temporary Redirect
+INFO:mcp.server.streamable_http_manager:Created new transport with session ID: f2c7157429694f1489be3135f592527d
+INFO:     127.0.0.1:58650 - "POST /mcp HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58664 - "POST /mcp/ HTTP/1.1" 307 Temporary Redirect
+INFO:     127.0.0.1:58670 - "GET /mcp/ HTTP/1.1" 307 Temporary Redirect
+INFO:     127.0.0.1:58664 - "POST /mcp HTTP/1.1" 202 Accepted
+INFO:     127.0.0.1:58670 - "GET /mcp HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58674 - "POST /mcp/ HTTP/1.1" 307 Temporary Redirect
+INFO:     127.0.0.1:58674 - "POST /mcp HTTP/1.1" 200 OK
+INFO:mcp.server.lowlevel.server:Processing request of type ListToolsRequest
+INFO:     127.0.0.1:58680 - "DELETE /mcp/ HTTP/1.1" 307 Temporary Redirect
+INFO:mcp.server.streamable_http:Terminating session: f2c7157429694f1489be3135f592527d
+INFO:     127.0.0.1:58680 - "DELETE /mcp HTTP/1.1" 200 OK
+INFO:     127.0.0.1:46942 - "POST /mcp/ HTTP/1.1" 307 Temporary Redirect
+INFO:mcp.server.streamable_http_manager:Created new transport with session ID: 53622fac802b44a1a683c8c3b8ca2458
+INFO:     127.0.0.1:46942 - "POST /mcp HTTP/1.1" 200 OK
+INFO:     127.0.0.1:46962 - "POST /mcp/ HTTP/1.1" 307 Temporary Redirect
+INFO:     127.0.0.1:46978 - "GET /mcp/ HTTP/1.1" 307 Temporary Redirect
+INFO:     127.0.0.1:46954 - "POST /mcp/ HTTP/1.1" 307 Temporary Redirect
+INFO:mcp.server.streamable_http_manager:Created new transport with session ID: 30addd5364e541d7bae7b577b3202462
+INFO:     127.0.0.1:46954 - "POST /mcp HTTP/1.1" 200 OK
+INFO:     127.0.0.1:46962 - "POST /mcp HTTP/1.1" 202 Accepted
+INFO:     127.0.0.1:46978 - "GET /mcp HTTP/1.1" 200 OK
+INFO:     127.0.0.1:46982 - "POST /mcp/ HTTP/1.1" 307 Temporary Redirect
+INFO:     127.0.0.1:46986 - "GET /mcp/ HTTP/1.1" 307 Temporary Redirect
+INFO:     127.0.0.1:46982 - "POST /mcp HTTP/1.1" 202 Accepted
+INFO:     127.0.0.1:46986 - "GET /mcp HTTP/1.1" 200 OK
+INFO:     127.0.0.1:46990 - "POST /mcp/ HTTP/1.1" 307 Temporary Redirect
+INFO:     127.0.0.1:47000 - "POST /mcp/ HTTP/1.1" 307 Temporary Redirect
+INFO:     127.0.0.1:46990 - "POST /mcp HTTP/1.1" 200 OK
+INFO:mcp.server.lowlevel.server:Processing request of type ListToolsRequest
+INFO:     127.0.0.1:47000 - "POST /mcp HTTP/1.1" 200 OK
+INFO:mcp.server.lowlevel.server:Processing request of type ListToolsRequest
+INFO:     127.0.0.1:47012 - "DELETE /mcp/ HTTP/1.1" 307 Temporary Redirect
+INFO:mcp.server.streamable_http:Terminating session: 30addd5364e541d7bae7b577b3202462
+INFO:     127.0.0.1:47012 - "DELETE /mcp HTTP/1.1" 200 OK
+INFO:     127.0.0.1:47026 - "DELETE /mcp/ HTTP/1.1" 307 Temporary Redirect
+INFO:mcp.server.streamable_http:Terminating session: 53622fac802b44a1a683c8c3b8ca2458
+INFO:     127.0.0.1:47026 - "DELETE /mcp HTTP/1.1" 200 OK
+INFO:     127.0.0.1:42444 - "POST /mcp/ HTTP/1.1" 307 Temporary Redirect
+INFO:mcp.server.streamable_http_manager:Created new transport with session ID: 6d0a7a9f5b3d48ef9469de335c66609e
+INFO:     127.0.0.1:42444 - "POST /mcp HTTP/1.1" 200 OK
+INFO:     127.0.0.1:42456 - "POST /mcp/ HTTP/1.1" 307 Temporary Redirect
+INFO:     127.0.0.1:42466 - "GET /mcp/ HTTP/1.1" 307 Temporary Redirect
+INFO:     127.0.0.1:42466 - "GET /mcp HTTP/1.1" 200 OK
+INFO:     127.0.0.1:42456 - "POST /mcp HTTP/1.1" 202 Accepted
+INFO:     127.0.0.1:42480 - "POST /mcp/ HTTP/1.1" 307 Temporary Redirect
+INFO:     127.0.0.1:42480 - "POST /mcp HTTP/1.1" 200 OK
+INFO:mcp.server.lowlevel.server:Processing request of type ListToolsRequest
+INFO:     127.0.0.1:42492 - "DELETE /mcp/ HTTP/1.1" 307 Temporary Redirect
+INFO:mcp.server.streamable_http:Terminating session: 6d0a7a9f5b3d48ef9469de335c66609e
+INFO:     127.0.0.1:42492 - "DELETE /mcp HTTP/1.1" 200 OK
+INFO:     127.0.0.1:42500 - "POST /mcp/ HTTP/1.1" 307 Temporary Redirect
+INFO:mcp.server.streamable_http_manager:Created new transport with session ID: 0350903d4084488ca6e0ae1f4d00458e
+INFO:     127.0.0.1:42500 - "POST /mcp HTTP/1.1" 200 OK
+INFO:     127.0.0.1:42516 - "POST /mcp/ HTTP/1.1" 307 Temporary Redirect
+INFO:     127.0.0.1:42522 - "GET /mcp/ HTTP/1.1" 307 Temporary Redirect
+INFO:     127.0.0.1:42516 - "POST /mcp HTTP/1.1" 202 Accepted
+INFO:     127.0.0.1:42522 - "GET /mcp HTTP/1.1" 200 OK
+INFO:     127.0.0.1:42524 - "POST /mcp/ HTTP/1.1" 307 Temporary Redirect
+INFO:     127.0.0.1:42524 - "POST /mcp HTTP/1.1" 200 OK
+INFO:mcp.server.lowlevel.server:Processing request of type ListToolsRequest
+INFO:     127.0.0.1:42538 - "DELETE /mcp/ HTTP/1.1" 307 Temporary Redirect
+INFO:mcp.server.streamable_http:Terminating session: 0350903d4084488ca6e0ae1f4d00458e
+INFO:     127.0.0.1:42538 - "DELETE /mcp HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55436 - "POST /mcp/ HTTP/1.1" 307 Temporary Redirect
+INFO:mcp.server.streamable_http_manager:Created new transport with session ID: ae15de1c70ca43b1ae89ad5a39dfc63d
+INFO:     127.0.0.1:55436 - "POST /mcp HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55452 - "POST /mcp/ HTTP/1.1" 307 Temporary Redirect
+INFO:     127.0.0.1:55464 - "GET /mcp/ HTTP/1.1" 307 Temporary Redirect
+INFO:     127.0.0.1:55452 - "POST /mcp HTTP/1.1" 202 Accepted
+INFO:     127.0.0.1:55464 - "GET /mcp HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55474 - "POST /mcp/ HTTP/1.1" 307 Temporary Redirect
+INFO:     127.0.0.1:55474 - "POST /mcp HTTP/1.1" 200 OK
+INFO:mcp.server.lowlevel.server:Processing request of type ListToolsRequest
+INFO:     127.0.0.1:55488 - "DELETE /mcp/ HTTP/1.1" 307 Temporary Redirect
+INFO:mcp.server.streamable_http:Terminating session: ae15de1c70ca43b1ae89ad5a39dfc63d
+INFO:     127.0.0.1:55488 - "DELETE /mcp HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55498 - "POST /mcp/ HTTP/1.1" 307 Temporary Redirect
+INFO:mcp.server.streamable_http_manager:Created new transport with session ID: 0214af88010246f2bf17652f38e59db0
+INFO:     127.0.0.1:55498 - "POST /mcp HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55502 - "POST /mcp/ HTTP/1.1" 307 Temporary Redirect
+INFO:     127.0.0.1:55512 - "GET /mcp/ HTTP/1.1" 307 Temporary Redirect
+INFO:     127.0.0.1:55502 - "POST /mcp HTTP/1.1" 202 Accepted
+INFO:     127.0.0.1:55512 - "GET /mcp HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55514 - "POST /mcp/ HTTP/1.1" 307 Temporary Redirect
+INFO:     127.0.0.1:55514 - "POST /mcp HTTP/1.1" 200 OK
+INFO:mcp.server.lowlevel.server:Processing request of type ListToolsRequest
+INFO:     127.0.0.1:55528 - "DELETE /mcp/ HTTP/1.1" 307 Temporary Redirect
+INFO:mcp.server.streamable_http:Terminating session: 0214af88010246f2bf17652f38e59db0
+INFO:     127.0.0.1:55528 - "DELETE /mcp HTTP/1.1" 200 OK
+INFO:     127.0.0.1:48406 - "POST /mcp/ HTTP/1.1" 307 Temporary Redirect
+INFO:mcp.server.streamable_http_manager:Created new transport with session ID: 3b490eb4a7c2430389278558c12c9445
+INFO:     127.0.0.1:48406 - "POST /mcp HTTP/1.1" 200 OK
+INFO:     127.0.0.1:48422 - "POST /mcp/ HTTP/1.1" 307 Temporary Redirect
+INFO:     127.0.0.1:48434 - "GET /mcp/ HTTP/1.1" 307 Temporary Redirect
+INFO:     127.0.0.1:48422 - "POST /mcp HTTP/1.1" 202 Accepted
+INFO:     127.0.0.1:48434 - "GET /mcp HTTP/1.1" 200 OK
+INFO:     127.0.0.1:48448 - "POST /mcp/ HTTP/1.1" 307 Temporary Redirect
+INFO:     127.0.0.1:48448 - "POST /mcp HTTP/1.1" 200 OK
+INFO:mcp.server.lowlevel.server:Processing request of type ListToolsRequest
+INFO:     127.0.0.1:48452 - "DELETE /mcp/ HTTP/1.1" 307 Temporary Redirect
+INFO:mcp.server.streamable_http:Terminating session: 3b490eb4a7c2430389278558c12c9445
+INFO:     127.0.0.1:48452 - "DELETE /mcp HTTP/1.1" 200 OK
+INFO:     127.0.0.1:48458 - "POST /mcp/ HTTP/1.1" 307 Temporary Redirect
+INFO:mcp.server.streamable_http_manager:Created new transport with session ID: 4121b2d2743741e8aaf9e70a4824d143
+INFO:     127.0.0.1:48458 - "POST /mcp HTTP/1.1" 200 OK
+INFO:     127.0.0.1:48474 - "POST /mcp/ HTTP/1.1" 307 Temporary Redirect
+INFO:     127.0.0.1:48478 - "GET /mcp/ HTTP/1.1" 307 Temporary Redirect
+INFO:     127.0.0.1:48474 - "POST /mcp HTTP/1.1" 202 Accepted
+INFO:     127.0.0.1:48478 - "GET /mcp HTTP/1.1" 200 OK
+INFO:     127.0.0.1:48484 - "POST /mcp/ HTTP/1.1" 307 Temporary Redirect
+INFO:     127.0.0.1:48484 - "POST /mcp HTTP/1.1" 200 OK
+INFO:mcp.server.lowlevel.server:Processing request of type ListToolsRequest
+INFO:     127.0.0.1:48500 - "DELETE /mcp/ HTTP/1.1" 307 Temporary Redirect
+INFO:mcp.server.streamable_http:Terminating session: 4121b2d2743741e8aaf9e70a4824d143
+INFO:     127.0.0.1:48500 - "DELETE /mcp HTTP/1.1" 200 OK
+INFO:     127.0.0.1:35008 - "POST /mcp/ HTTP/1.1" 307 Temporary Redirect
+INFO:mcp.server.streamable_http_manager:Created new transport with session ID: dc82c6fbc1e54037b43e68ced78429f0
+INFO:     127.0.0.1:35008 - "POST /mcp HTTP/1.1" 200 OK
+INFO:     127.0.0.1:35018 - "POST /mcp/ HTTP/1.1" 307 Temporary Redirect
+INFO:     127.0.0.1:35020 - "GET /mcp/ HTTP/1.1" 307 Temporary Redirect
+INFO:     127.0.0.1:35020 - "GET /mcp HTTP/1.1" 200 OK
+INFO:     127.0.0.1:35018 - "POST /mcp HTTP/1.1" 202 Accepted
+INFO:     127.0.0.1:35030 - "POST /mcp/ HTTP/1.1" 307 Temporary Redirect
+INFO:     127.0.0.1:35030 - "POST /mcp HTTP/1.1" 200 OK
+INFO:mcp.server.lowlevel.server:Processing request of type ListToolsRequest
+INFO:     127.0.0.1:35050 - "POST /mcp/ HTTP/1.1" 307 Temporary Redirect
+INFO:     127.0.0.1:35034 - "DELETE /mcp/ HTTP/1.1" 307 Temporary Redirect
+INFO:mcp.server.streamable_http:Terminating session: dc82c6fbc1e54037b43e68ced78429f0
+INFO:     127.0.0.1:35034 - "DELETE /mcp HTTP/1.1" 200 OK
+INFO:mcp.server.streamable_http_manager:Created new transport with session ID: 2e2263a06cec48c5a8445b73f9621282
+INFO:     127.0.0.1:35050 - "POST /mcp HTTP/1.1" 200 OK
+INFO:     127.0.0.1:35054 - "POST /mcp/ HTTP/1.1" 307 Temporary Redirect
+INFO:     127.0.0.1:35058 - "GET /mcp/ HTTP/1.1" 307 Temporary Redirect
+INFO:     127.0.0.1:35054 - "POST /mcp HTTP/1.1" 202 Accepted
+INFO:     127.0.0.1:35058 - "GET /mcp HTTP/1.1" 200 OK
+INFO:     127.0.0.1:35072 - "POST /mcp/ HTTP/1.1" 307 Temporary Redirect
+INFO:     127.0.0.1:35072 - "POST /mcp HTTP/1.1" 200 OK
+INFO:mcp.server.lowlevel.server:Processing request of type ListToolsRequest
+INFO:     127.0.0.1:35086 - "DELETE /mcp/ HTTP/1.1" 307 Temporary Redirect
+INFO:mcp.server.streamable_http:Terminating session: 2e2263a06cec48c5a8445b73f9621282
+INFO:     127.0.0.1:35086 - "DELETE /mcp HTTP/1.1" 200 OK
+INFO:     127.0.0.1:47836 - "POST /mcp/ HTTP/1.1" 307 Temporary Redirect
+INFO:mcp.server.streamable_http_manager:Created new transport with session ID: 83b86c14903b44d8a7bd018992123f4e
+INFO:     127.0.0.1:47836 - "POST /mcp HTTP/1.1" 200 OK
+INFO:     127.0.0.1:47838 - "POST /mcp/ HTTP/1.1" 307 Temporary Redirect
+INFO:     127.0.0.1:47846 - "GET /mcp/ HTTP/1.1" 307 Temporary Redirect
+INFO:     127.0.0.1:47838 - "POST /mcp HTTP/1.1" 202 Accepted
+INFO:     127.0.0.1:47846 - "GET /mcp HTTP/1.1" 200 OK
+INFO:     127.0.0.1:47850 - "POST /mcp/ HTTP/1.1" 307 Temporary Redirect
+INFO:     127.0.0.1:47850 - "POST /mcp HTTP/1.1" 200 OK
+INFO:mcp.server.lowlevel.server:Processing request of type ListToolsRequest
+INFO:     127.0.0.1:47862 - "DELETE /mcp/ HTTP/1.1" 307 Temporary Redirect
+INFO:mcp.server.streamable_http:Terminating session: 83b86c14903b44d8a7bd018992123f4e
+INFO:     127.0.0.1:47862 - "DELETE /mcp HTTP/1.1" 200 OK
+INFO:     127.0.0.1:47864 - "POST /mcp/ HTTP/1.1" 307 Temporary Redirect
+INFO:mcp.server.streamable_http_manager:Created new transport with session ID: e59eea2e4ac8495d9fd5efd938dc2a73
+INFO:     127.0.0.1:47864 - "POST /mcp HTTP/1.1" 200 OK
+INFO:     127.0.0.1:47878 - "POST /mcp/ HTTP/1.1" 307 Temporary Redirect
+INFO:     127.0.0.1:47888 - "GET /mcp/ HTTP/1.1" 307 Temporary Redirect
+INFO:     127.0.0.1:47878 - "POST /mcp HTTP/1.1" 202 Accepted
+INFO:     127.0.0.1:47888 - "GET /mcp HTTP/1.1" 200 OK
+INFO:     127.0.0.1:47890 - "POST /mcp/ HTTP/1.1" 307 Temporary Redirect
+INFO:     127.0.0.1:47890 - "POST /mcp HTTP/1.1" 200 OK
+INFO:mcp.server.lowlevel.server:Processing request of type ListToolsRequest
+INFO:     127.0.0.1:47898 - "DELETE /mcp/ HTTP/1.1" 307 Temporary Redirect
+INFO:mcp.server.streamable_http:Terminating session: e59eea2e4ac8495d9fd5efd938dc2a73
+INFO:     127.0.0.1:47898 - "DELETE /mcp HTTP/1.1" 200 OK
+INFO:     127.0.0.1:40552 - "POST /mcp/ HTTP/1.1" 307 Temporary Redirect
+INFO:mcp.server.streamable_http_manager:Created new transport with session ID: 7fff41f91ac14fafa7f957e4f587bcf5
+INFO:     127.0.0.1:40552 - "POST /mcp HTTP/1.1" 200 OK
+INFO:     127.0.0.1:40554 - "POST /mcp/ HTTP/1.1" 307 Temporary Redirect
+INFO:     127.0.0.1:40564 - "GET /mcp/ HTTP/1.1" 307 Temporary Redirect
+INFO:     127.0.0.1:40564 - "GET /mcp HTTP/1.1" 200 OK
+INFO:     127.0.0.1:40554 - "POST /mcp HTTP/1.1" 202 Accepted
+INFO:     127.0.0.1:40568 - "POST /mcp/ HTTP/1.1" 307 Temporary Redirect
+INFO:     127.0.0.1:40568 - "POST /mcp HTTP/1.1" 200 OK
+INFO:mcp.server.lowlevel.server:Processing request of type ListToolsRequest
+INFO:     127.0.0.1:40584 - "DELETE /mcp/ HTTP/1.1" 307 Temporary Redirect
+INFO:mcp.server.streamable_http:Terminating session: 7fff41f91ac14fafa7f957e4f587bcf5
+INFO:     127.0.0.1:40584 - "DELETE /mcp HTTP/1.1" 200 OK
+INFO:     127.0.0.1:35870 - "POST /mcp/ HTTP/1.1" 307 Temporary Redirect
+INFO:mcp.server.streamable_http_manager:Created new transport with session ID: 3f0c8cc32e124d748f1ed90b065c2bc1
+INFO:     127.0.0.1:35870 - "POST /mcp HTTP/1.1" 200 OK
+INFO:     127.0.0.1:35874 - "POST /mcp/ HTTP/1.1" 307 Temporary Redirect
+INFO:     127.0.0.1:35884 - "GET /mcp/ HTTP/1.1" 307 Temporary Redirect
+INFO:     127.0.0.1:35874 - "POST /mcp HTTP/1.1" 202 Accepted
+INFO:     127.0.0.1:35884 - "GET /mcp HTTP/1.1" 200 OK
+INFO:     127.0.0.1:35896 - "POST /mcp/ HTTP/1.1" 307 Temporary Redirect
+INFO:     127.0.0.1:35896 - "POST /mcp HTTP/1.1" 200 OK
+INFO:mcp.server.lowlevel.server:Processing request of type ListToolsRequest
+INFO:     127.0.0.1:35904 - "DELETE /mcp/ HTTP/1.1" 307 Temporary Redirect
+INFO:mcp.server.streamable_http:Terminating session: 3f0c8cc32e124d748f1ed90b065c2bc1
+INFO:     127.0.0.1:35904 - "DELETE /mcp HTTP/1.1" 200 OK
+INFO:     127.0.0.1:35920 - "POST /mcp/ HTTP/1.1" 307 Temporary Redirect
+INFO:mcp.server.streamable_http_manager:Created new transport with session ID: 7dbb6687c77c471b92c958d8b6805f11
+INFO:     127.0.0.1:35920 - "POST /mcp HTTP/1.1" 200 OK
+INFO:     127.0.0.1:35930 - "POST /mcp/ HTTP/1.1" 307 Temporary Redirect
+INFO:     127.0.0.1:35946 - "GET /mcp/ HTTP/1.1" 307 Temporary Redirect
+INFO:     127.0.0.1:35930 - "POST /mcp HTTP/1.1" 202 Accepted
+INFO:     127.0.0.1:35946 - "GET /mcp HTTP/1.1" 200 OK
+INFO:     127.0.0.1:35954 - "POST /mcp/ HTTP/1.1" 307 Temporary Redirect
+INFO:     127.0.0.1:35954 - "POST /mcp HTTP/1.1" 200 OK
+INFO:mcp.server.lowlevel.server:Processing request of type ListToolsRequest
+INFO:     127.0.0.1:35964 - "DELETE /mcp/ HTTP/1.1" 307 Temporary Redirect
+INFO:mcp.server.streamable_http:Terminating session: 7dbb6687c77c471b92c958d8b6805f11
+INFO:     127.0.0.1:35964 - "DELETE /mcp HTTP/1.1" 200 OK
+INFO:     127.0.0.1:42920 - "POST /mcp/ HTTP/1.1" 307 Temporary Redirect
+INFO:mcp.server.streamable_http_manager:Created new transport with session ID: 9b40d7d991f34217929a04792603fbcd
+INFO:     127.0.0.1:42920 - "POST /mcp HTTP/1.1" 200 OK
+INFO:     127.0.0.1:42930 - "POST /mcp/ HTTP/1.1" 307 Temporary Redirect
+INFO:     127.0.0.1:42932 - "GET /mcp/ HTTP/1.1" 307 Temporary Redirect
+INFO:     127.0.0.1:42932 - "GET /mcp HTTP/1.1" 200 OK
+INFO:     127.0.0.1:42930 - "POST /mcp HTTP/1.1" 202 Accepted
+INFO:     127.0.0.1:42940 - "POST /mcp/ HTTP/1.1" 307 Temporary Redirect
+INFO:     127.0.0.1:42940 - "POST /mcp HTTP/1.1" 200 OK
+INFO:mcp.server.lowlevel.server:Processing request of type ListToolsRequest
+INFO:     127.0.0.1:42946 - "DELETE /mcp/ HTTP/1.1" 307 Temporary Redirect
+INFO:mcp.server.streamable_http:Terminating session: 9b40d7d991f34217929a04792603fbcd
+INFO:     127.0.0.1:42946 - "DELETE /mcp HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56952 - "POST /mcp/ HTTP/1.1" 307 Temporary Redirect
+INFO:mcp.server.streamable_http_manager:Created new transport with session ID: d147dc2ccf8f45bd8b8cedd57873996d
+INFO:     127.0.0.1:56952 - "POST /mcp HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56956 - "POST /mcp/ HTTP/1.1" 307 Temporary Redirect
+INFO:     127.0.0.1:56966 - "GET /mcp/ HTTP/1.1" 307 Temporary Redirect
+INFO:     127.0.0.1:56956 - "POST /mcp HTTP/1.1" 202 Accepted
+INFO:     127.0.0.1:56966 - "GET /mcp HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56974 - "POST /mcp/ HTTP/1.1" 307 Temporary Redirect
+INFO:     127.0.0.1:56974 - "POST /mcp HTTP/1.1" 200 OK
+INFO:mcp.server.lowlevel.server:Processing request of type ListToolsRequest
+INFO:     127.0.0.1:56980 - "DELETE /mcp/ HTTP/1.1" 307 Temporary Redirect
+INFO:mcp.server.streamable_http:Terminating session: d147dc2ccf8f45bd8b8cedd57873996d
+INFO:     127.0.0.1:56980 - "DELETE /mcp HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55946 - "POST /mcp/ HTTP/1.1" 307 Temporary Redirect
+INFO:mcp.server.streamable_http_manager:Created new transport with session ID: 865554817fd24fe1b0168929e9c24048
+INFO:     127.0.0.1:55946 - "POST /mcp HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55962 - "POST /mcp/ HTTP/1.1" 307 Temporary Redirect
+INFO:     127.0.0.1:55972 - "GET /mcp/ HTTP/1.1" 307 Temporary Redirect
+INFO:     127.0.0.1:55962 - "POST /mcp HTTP/1.1" 202 Accepted
+INFO:     127.0.0.1:55972 - "GET /mcp HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55976 - "POST /mcp/ HTTP/1.1" 307 Temporary Redirect
+INFO:     127.0.0.1:55976 - "POST /mcp HTTP/1.1" 200 OK
+INFO:mcp.server.lowlevel.server:Processing request of type ListToolsRequest
+INFO:     127.0.0.1:55988 - "DELETE /mcp/ HTTP/1.1" 307 Temporary Redirect
+INFO:mcp.server.streamable_http:Terminating session: 865554817fd24fe1b0168929e9c24048
+INFO:     127.0.0.1:55988 - "DELETE /mcp HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57142 - "POST /mcp/ HTTP/1.1" 307 Temporary Redirect
+INFO:mcp.server.streamable_http_manager:Created new transport with session ID: e6278437abb44703b97b3020a57a7622
+INFO:     127.0.0.1:57142 - "POST /mcp HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57148 - "POST /mcp/ HTTP/1.1" 307 Temporary Redirect
+INFO:     127.0.0.1:57162 - "GET /mcp/ HTTP/1.1" 307 Temporary Redirect
+INFO:     127.0.0.1:57148 - "POST /mcp HTTP/1.1" 202 Accepted
+INFO:     127.0.0.1:57162 - "GET /mcp HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57172 - "POST /mcp/ HTTP/1.1" 307 Temporary Redirect
+INFO:     127.0.0.1:57172 - "POST /mcp HTTP/1.1" 200 OK
+INFO:mcp.server.lowlevel.server:Processing request of type ListToolsRequest
+INFO:     127.0.0.1:57184 - "DELETE /mcp/ HTTP/1.1" 307 Temporary Redirect
+INFO:mcp.server.streamable_http:Terminating session: e6278437abb44703b97b3020a57a7622
+INFO:     127.0.0.1:57184 - "DELETE /mcp HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57200 - "POST /mcp/ HTTP/1.1" 307 Temporary Redirect
+INFO:mcp.server.streamable_http_manager:Created new transport with session ID: 1b5d9bf25cf64d0d9b278ab047849186
+INFO:     127.0.0.1:57200 - "POST /mcp HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57210 - "POST /mcp/ HTTP/1.1" 307 Temporary Redirect
+INFO:     127.0.0.1:57212 - "GET /mcp/ HTTP/1.1" 307 Temporary Redirect
+INFO:     127.0.0.1:57210 - "POST /mcp HTTP/1.1" 202 Accepted
+INFO:     127.0.0.1:57212 - "GET /mcp HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57218 - "POST /mcp/ HTTP/1.1" 307 Temporary Redirect
+INFO:     127.0.0.1:57218 - "POST /mcp HTTP/1.1" 200 OK
+INFO:mcp.server.lowlevel.server:Processing request of type ListToolsRequest
+INFO:     127.0.0.1:57220 - "DELETE /mcp/ HTTP/1.1" 307 Temporary Redirect
+INFO:mcp.server.streamable_http:Terminating session: 1b5d9bf25cf64d0d9b278ab047849186
+INFO:     127.0.0.1:57220 - "DELETE /mcp HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54662 - "POST /mcp/ HTTP/1.1" 307 Temporary Redirect
+INFO:mcp.server.streamable_http_manager:Created new transport with session ID: d3d300a914124ca8a3c3069ca636bee0
+INFO:     127.0.0.1:54662 - "POST /mcp HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54670 - "POST /mcp/ HTTP/1.1" 307 Temporary Redirect
+INFO:     127.0.0.1:54686 - "GET /mcp/ HTTP/1.1" 307 Temporary Redirect
+INFO:     127.0.0.1:54670 - "POST /mcp HTTP/1.1" 202 Accepted
+INFO:     127.0.0.1:54686 - "GET /mcp HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54692 - "POST /mcp/ HTTP/1.1" 307 Temporary Redirect
+INFO:     127.0.0.1:54692 - "POST /mcp HTTP/1.1" 200 OK
+INFO:mcp.server.lowlevel.server:Processing request of type ListToolsRequest
+INFO:     127.0.0.1:54706 - "DELETE /mcp/ HTTP/1.1" 307 Temporary Redirect
+INFO:mcp.server.streamable_http:Terminating session: d3d300a914124ca8a3c3069ca636bee0
+INFO:     127.0.0.1:54706 - "DELETE /mcp HTTP/1.1" 200 OK

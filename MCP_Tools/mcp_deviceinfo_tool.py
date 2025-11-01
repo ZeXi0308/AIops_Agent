@@ -1,0 +1,112 @@
+from typing import Dict, Any, Optional
+from mcp.server.fastmcp import FastMCP
+import sqlite3
+import asyncio
+import os
+import uvicorn
+import contextlib
+from starlette.applications import Starlette
+from starlette.routing import Mount
+
+mcp = FastMCP(name="DeviceInfoLookup")
+
+# database addr
+DB_PATH = "/mnt/device_info.db"
+
+async def _query_device_info(key: str) -> Optional[Dict[str, str]]:
+    """
+    在 device_info 中查找任意一列等于 key 的记录，并取出 (DU_name, rbs_name, sitelan_ip)
+    """
+    # 确保文件存在
+    if not os.path.isfile(DB_PATH):
+        raise FileNotFoundError(f"Database not found at {DB_PATH}")
+
+    def _do_query():
+        conn = sqlite3.connect(DB_PATH)
+        cur = conn.cursor()
+        # 参数化查询：在三列中任意匹配
+        cur.execute(
+            """
+            SELECT DU_name, rbs_name, sitelan_ip
+              FROM device_info
+             WHERE ? IN (DU_name, rbs_name, sitelan_ip)
+             LIMIT 1
+            """,
+            (key,)
+        )
+        row = cur.fetchone()
+        conn.close()
+        return row
+
+    row = await asyncio.to_thread(_do_query)
+    if not row:
+        return None
+
+    return {
+        "DU_name":   row[0],
+        "rbs_name":  row[1],
+        "sitelan_ip": row[2]
+    }
+
+@mcp.tool(
+    name="DU_Name_IP_Mapping",
+    description=(
+        "Retrieve the latest available Upgrade Package (UP) versions."
+        "This tool queries the InfoBank API to obtain the most recent upgrade packages based on the user's request."
+    )
+)
+async def lookup_device_info(
+    query_key: str
+) -> Dict[str, Any]:
+    """
+    Parameters
+    ----------
+    query_key : str
+        
+    Returns
+    -------
+    Dict[str, Any]
+        如果找到：
+        {
+          "found": True,
+          "DU_name": str,
+          "rbs_name": str,
+          "sitelan_ip": str
+        }
+        如果没找到：
+        {
+          "found": False,
+          "detail": "No matching record"
+        }
+    """
+    try:
+        info = await _query_device_info(query_key)
+    except FileNotFoundError as fe:
+        # 数据库文件不存在
+        return {"found": False, "detail": str(fe)}
+    except Exception as e:
+        # 其它异常
+        raise Exception(f"Error querying device_info: {e}")
+
+    if info is None:
+        return {"found": False, "detail": "No matching record"}
+
+    return {"found": True, **info}
+
+@contextlib.asynccontextmanager
+async def lifespan(app):
+    async with mcp.session_manager.run():
+        yield
+
+app = Starlette(
+    routes=[Mount("/", mcp.streamable_http_app())],
+    lifespan=lifespan,
+)
+
+if __name__ == "__main__":
+    uvicorn.run(
+        app,
+        host="127.0.0.1",
+        port=8001,       
+        log_level="info",
+    )

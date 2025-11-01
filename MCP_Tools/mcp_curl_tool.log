@@ -1,0 +1,664 @@
+nohup: ignoring input
+INFO:     Started server process [873384]
+INFO:     Waiting for application startup.
+[10/24/25 03:28:22] INFO     StreamableHTTP       streamable_http_manager.py:111
+                             session manager                                    
+                             started                                            
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://127.0.0.1:8000 (Press CTRL+C to quit)
+INFO:     127.0.0.1:60868 - "POST /mcp/ HTTP/1.1" 307 Temporary Redirect
+[10/24/25 03:31:27] INFO     Created new          streamable_http_manager.py:234
+                             transport with                                     
+                             session ID:                                        
+                             8fb3be1c26174998b201                               
+                             26a2e9f598e7                                       
+INFO:     127.0.0.1:51904 - "POST /mcp/ HTTP/1.1" 307 Temporary Redirect
+[10/24/25 04:14:13] INFO     Created new          streamable_http_manager.py:234
+                             transport with                                     
+                             session ID:                                        
+                             5cf08a4241b043a6a327                               
+                             e859be60ec7a                                       
+INFO:     127.0.0.1:51904 - "POST /mcp HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51910 - "POST /mcp/ HTTP/1.1" 307 Temporary Redirect
+INFO:     127.0.0.1:51926 - "GET /mcp/ HTTP/1.1" 307 Temporary Redirect
+INFO:     127.0.0.1:51910 - "POST /mcp HTTP/1.1" 202 Accepted
+INFO:     127.0.0.1:51926 - "GET /mcp HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51934 - "POST /mcp/ HTTP/1.1" 307 Temporary Redirect
+INFO:     127.0.0.1:51934 - "POST /mcp HTTP/1.1" 200 OK
+                    INFO     Processing request of type            server.py:625
+                             ListToolsRequest                                   
+INFO:     127.0.0.1:51944 - "DELETE /mcp/ HTTP/1.1" 307 Temporary Redirect
+                    INFO     Terminating session:         streamable_http.py:630
+                             5cf08a4241b043a6a327e859be60                       
+                             ec7a                                               
+INFO:     127.0.0.1:51944 - "DELETE /mcp HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50070 - "POST /mcp/ HTTP/1.1" 307 Temporary Redirect
+                    INFO     Created new          streamable_http_manager.py:234
+                             transport with                                     
+                             session ID:                                        
+                             2dd6d765af7d4ad1a90c                               
+                             d53385817c48                                       
+INFO:     127.0.0.1:50070 - "POST /mcp HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50084 - "POST /mcp/ HTTP/1.1" 307 Temporary Redirect
+INFO:     127.0.0.1:50100 - "GET /mcp/ HTTP/1.1" 307 Temporary Redirect
+INFO:     127.0.0.1:50084 - "POST /mcp HTTP/1.1" 202 Accepted
+INFO:     127.0.0.1:50100 - "GET /mcp HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50104 - "POST /mcp/ HTTP/1.1" 307 Temporary Redirect
+INFO:     127.0.0.1:50104 - "POST /mcp HTTP/1.1" 200 OK
+[10/24/25 04:14:14] INFO     Processing request of type            server.py:625
+                             ListToolsRequest                                   
+INFO:     127.0.0.1:50116 - "DELETE /mcp/ HTTP/1.1" 307 Temporary Redirect
+                    INFO     Terminating session:         streamable_http.py:630
+                             2dd6d765af7d4ad1a90cd5338581                       
+                             7c48                                               
+INFO:     127.0.0.1:50116 - "DELETE /mcp HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50596 - "POST /mcp/ HTTP/1.1" 307 Temporary Redirect
+[10/24/25 04:14:34] INFO     Created new          streamable_http_manager.py:234
+                             transport with                                     
+                             session ID:                                        
+                             49fe51230b284d0e8a4d                               
+                             d47ced62792b                                       
+INFO:     127.0.0.1:50596 - "POST /mcp HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50610 - "POST /mcp/ HTTP/1.1" 307 Temporary Redirect
+INFO:     127.0.0.1:50618 - "GET /mcp/ HTTP/1.1" 307 Temporary Redirect
+INFO:     127.0.0.1:50610 - "POST /mcp HTTP/1.1" 202 Accepted
+INFO:     127.0.0.1:50618 - "GET /mcp HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50634 - "POST /mcp/ HTTP/1.1" 307 Temporary Redirect
+INFO:     127.0.0.1:50634 - "POST /mcp HTTP/1.1" 200 OK
+                    INFO     Processing request of type            server.py:625
+                             ListToolsRequest                                   
+INFO:     127.0.0.1:50640 - "DELETE /mcp/ HTTP/1.1" 307 Temporary Redirect
+                    INFO     Terminating session:         streamable_http.py:630
+                             49fe51230b284d0e8a4dd47ced62                       
+                             792b                                               
+INFO:     127.0.0.1:50640 - "DELETE /mcp HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50650 - "POST /mcp/ HTTP/1.1" 307 Temporary Redirect
+[10/24/25 04:14:35] INFO     Created new          streamable_http_manager.py:234
+                             transport with                                     
+                             session ID:                                        
+                             ba5a744989c64ea4a0da                               
+                             607e9abb367b                                       
+INFO:     127.0.0.1:50650 - "POST /mcp HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50658 - "POST /mcp/ HTTP/1.1" 307 Temporary Redirect
+INFO:     127.0.0.1:50662 - "GET /mcp/ HTTP/1.1" 307 Temporary Redirect
+INFO:     127.0.0.1:50658 - "POST /mcp HTTP/1.1" 202 Accepted
+INFO:     127.0.0.1:50662 - "GET /mcp HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50666 - "POST /mcp/ HTTP/1.1" 307 Temporary Redirect
+INFO:     127.0.0.1:50666 - "POST /mcp HTTP/1.1" 200 OK
+                    INFO     Processing request of type            server.py:625
+                             ListToolsRequest                                   
+INFO:     127.0.0.1:50670 - "DELETE /mcp/ HTTP/1.1" 307 Temporary Redirect
+                    INFO     Terminating session:         streamable_http.py:630
+                             ba5a744989c64ea4a0da607e9abb                       
+                             367b                                               
+INFO:     127.0.0.1:50670 - "DELETE /mcp HTTP/1.1" 200 OK
+INFO:     127.0.0.1:44208 - "POST /mcp/ HTTP/1.1" 307 Temporary Redirect
+[10/24/25 07:34:33] INFO     Created new          streamable_http_manager.py:234
+                             transport with                                     
+                             session ID:                                        
+                             daf4aaf8bf3143e2aa22                               
+                             2a55b2e5cfba                                       
+INFO:     127.0.0.1:44208 - "POST /mcp HTTP/1.1" 200 OK
+INFO:     127.0.0.1:44218 - "POST /mcp/ HTTP/1.1" 307 Temporary Redirect
+INFO:     127.0.0.1:44230 - "GET /mcp/ HTTP/1.1" 307 Temporary Redirect
+INFO:     127.0.0.1:44218 - "POST /mcp HTTP/1.1" 202 Accepted
+INFO:     127.0.0.1:44230 - "GET /mcp HTTP/1.1" 200 OK
+INFO:     127.0.0.1:44238 - "POST /mcp/ HTTP/1.1" 307 Temporary Redirect
+INFO:     127.0.0.1:44238 - "POST /mcp HTTP/1.1" 200 OK
+                    INFO     Processing request of type            server.py:625
+                             ListToolsRequest                                   
+INFO:     127.0.0.1:44248 - "DELETE /mcp/ HTTP/1.1" 307 Temporary Redirect
+                    INFO     Terminating session:         streamable_http.py:630
+                             daf4aaf8bf3143e2aa222a55b2e5                       
+                             cfba                                               
+INFO:     127.0.0.1:44248 - "DELETE /mcp HTTP/1.1" 200 OK
+INFO:     127.0.0.1:44262 - "POST /mcp/ HTTP/1.1" 307 Temporary Redirect
+[10/24/25 07:34:34] INFO     Created new          streamable_http_manager.py:234
+                             transport with                                     
+                             session ID:                                        
+                             680723fd1c9b409d8172                               
+                             b543c2a8585c                                       
+INFO:     127.0.0.1:44262 - "POST /mcp HTTP/1.1" 200 OK
+INFO:     127.0.0.1:44264 - "POST /mcp/ HTTP/1.1" 307 Temporary Redirect
+INFO:     127.0.0.1:44270 - "GET /mcp/ HTTP/1.1" 307 Temporary Redirect
+INFO:     127.0.0.1:44270 - "GET /mcp HTTP/1.1" 200 OK
+INFO:     127.0.0.1:44264 - "POST /mcp HTTP/1.1" 202 Accepted
+INFO:     127.0.0.1:44278 - "POST /mcp/ HTTP/1.1" 307 Temporary Redirect
+INFO:     127.0.0.1:44278 - "POST /mcp HTTP/1.1" 200 OK
+                    INFO     Processing request of type            server.py:625
+                             ListToolsRequest                                   
+INFO:     127.0.0.1:44286 - "DELETE /mcp/ HTTP/1.1" 307 Temporary Redirect
+                    INFO     Terminating session:         streamable_http.py:630
+                             680723fd1c9b409d8172b543c2a8                       
+                             585c                                               
+INFO:     127.0.0.1:44286 - "DELETE /mcp HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52990 - "POST /mcp/ HTTP/1.1" 307 Temporary Redirect
+[10/24/25 07:35:06] INFO     Created new          streamable_http_manager.py:234
+                             transport with                                     
+                             session ID:                                        
+                             8a4d6048276f461f8fd0                               
+                             9edd15727669                                       
+INFO:     127.0.0.1:52990 - "POST /mcp HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52998 - "POST /mcp/ HTTP/1.1" 307 Temporary Redirect
+INFO:     127.0.0.1:53000 - "GET /mcp/ HTTP/1.1" 307 Temporary Redirect
+INFO:     127.0.0.1:52998 - "POST /mcp HTTP/1.1" 202 Accepted
+INFO:     127.0.0.1:53000 - "GET /mcp HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53012 - "POST /mcp/ HTTP/1.1" 307 Temporary Redirect
+INFO:     127.0.0.1:53012 - "POST /mcp HTTP/1.1" 200 OK
+                    INFO     Processing request of type            server.py:625
+                             ListToolsRequest                                   
+INFO:     127.0.0.1:53022 - "DELETE /mcp/ HTTP/1.1" 307 Temporary Redirect
+                    INFO     Terminating session:         streamable_http.py:630
+                             8a4d6048276f461f8fd09edd1572                       
+                             7669                                               
+INFO:     127.0.0.1:53022 - "DELETE /mcp HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53038 - "POST /mcp/ HTTP/1.1" 307 Temporary Redirect
+                    INFO     Created new          streamable_http_manager.py:234
+                             transport with                                     
+                             session ID:                                        
+                             418a47a3b6f8435d8ad3                               
+                             753b865cabf6                                       
+INFO:     127.0.0.1:53038 - "POST /mcp HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53044 - "POST /mcp/ HTTP/1.1" 307 Temporary Redirect
+INFO:     127.0.0.1:53060 - "GET /mcp/ HTTP/1.1" 307 Temporary Redirect
+INFO:     127.0.0.1:53044 - "POST /mcp HTTP/1.1" 202 Accepted
+INFO:     127.0.0.1:53060 - "GET /mcp HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53070 - "POST /mcp/ HTTP/1.1" 307 Temporary Redirect
+INFO:     127.0.0.1:53070 - "POST /mcp HTTP/1.1" 200 OK
+                    INFO     Processing request of type            server.py:625
+                             ListToolsRequest                                   
+INFO:     127.0.0.1:53086 - "DELETE /mcp/ HTTP/1.1" 307 Temporary Redirect
+                    INFO     Terminating session:         streamable_http.py:630
+                             418a47a3b6f8435d8ad3753b865c                       
+                             abf6                                               
+INFO:     127.0.0.1:53086 - "DELETE /mcp HTTP/1.1" 200 OK
+INFO:     127.0.0.1:40672 - "POST /mcp/ HTTP/1.1" 307 Temporary Redirect
+[10/24/25 07:35:32] INFO     Created new          streamable_http_manager.py:234
+                             transport with                                     
+                             session ID:                                        
+                             923251efae494e69b738                               
+                             5ee1cb85d98e                                       
+INFO:     127.0.0.1:40672 - "POST /mcp HTTP/1.1" 200 OK
+INFO:     127.0.0.1:40680 - "POST /mcp/ HTTP/1.1" 307 Temporary Redirect
+INFO:     127.0.0.1:40696 - "GET /mcp/ HTTP/1.1" 307 Temporary Redirect
+INFO:     127.0.0.1:40696 - "GET /mcp HTTP/1.1" 200 OK
+INFO:     127.0.0.1:40680 - "POST /mcp HTTP/1.1" 202 Accepted
+INFO:     127.0.0.1:40700 - "POST /mcp/ HTTP/1.1" 307 Temporary Redirect
+INFO:     127.0.0.1:40700 - "POST /mcp HTTP/1.1" 200 OK
+[10/24/25 07:35:33] INFO     Processing request of type            server.py:625
+                             ListToolsRequest                                   
+INFO:     127.0.0.1:40714 - "DELETE /mcp/ HTTP/1.1" 307 Temporary Redirect
+                    INFO     Terminating session:         streamable_http.py:630
+                             923251efae494e69b7385ee1cb85                       
+                             d98e                                               
+INFO:     127.0.0.1:40714 - "DELETE /mcp HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60390 - "POST /mcp/ HTTP/1.1" 307 Temporary Redirect
+[10/24/25 07:40:58] INFO     Created new          streamable_http_manager.py:234
+                             transport with                                     
+                             session ID:                                        
+                             ded84dc5d2f843e4b878                               
+                             082d57f6a109                                       
+INFO:     127.0.0.1:60390 - "POST /mcp HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60394 - "POST /mcp/ HTTP/1.1" 307 Temporary Redirect
+INFO:     127.0.0.1:60398 - "GET /mcp/ HTTP/1.1" 307 Temporary Redirect
+INFO:     127.0.0.1:60394 - "POST /mcp HTTP/1.1" 202 Accepted
+INFO:     127.0.0.1:60398 - "GET /mcp HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60412 - "POST /mcp/ HTTP/1.1" 307 Temporary Redirect
+INFO:     127.0.0.1:60412 - "POST /mcp HTTP/1.1" 200 OK
+                    INFO     Processing request of type            server.py:625
+                             CallToolRequest                                    
+[10/24/25 07:40:59] INFO     HTTP Request: GET                   _client.py:1740
+                             https://infobank.npee.gic.ericsson.                
+                             se/infobank/rest/v2/product/revisio                
+                             n?product_number=CXP2010174_2&lates                
+                             t=3&confidence_level=3&confidence_l                
+                             evel_depth=0 "HTTP/1.1 200 "                       
+INFO:     127.0.0.1:60414 - "POST /mcp/ HTTP/1.1" 307 Temporary Redirect
+INFO:     127.0.0.1:60414 - "POST /mcp HTTP/1.1" 200 OK
+                    INFO     Processing request of type            server.py:625
+                             ListToolsRequest                                   
+INFO:     127.0.0.1:60430 - "DELETE /mcp/ HTTP/1.1" 307 Temporary Redirect
+                    INFO     Terminating session:         streamable_http.py:630
+                             ded84dc5d2f843e4b878082d57f6                       
+                             a109                                               
+INFO:     127.0.0.1:60430 - "DELETE /mcp HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51188 - "POST /mcp/ HTTP/1.1" 307 Temporary Redirect
+[10/24/25 07:43:09] INFO     Created new          streamable_http_manager.py:234
+                             transport with                                     
+                             session ID:                                        
+                             09dfa24d02f54bf18cbb                               
+                             4646c67f74ae                                       
+INFO:     127.0.0.1:51188 - "POST /mcp HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51202 - "POST /mcp/ HTTP/1.1" 307 Temporary Redirect
+INFO:     127.0.0.1:51216 - "GET /mcp/ HTTP/1.1" 307 Temporary Redirect
+INFO:     127.0.0.1:51202 - "POST /mcp HTTP/1.1" 202 Accepted
+INFO:     127.0.0.1:51216 - "GET /mcp HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51230 - "POST /mcp/ HTTP/1.1" 307 Temporary Redirect
+INFO:     127.0.0.1:51230 - "POST /mcp HTTP/1.1" 200 OK
+                    INFO     Processing request of type            server.py:625
+                             ListToolsRequest                                   
+INFO:     127.0.0.1:51244 - "DELETE /mcp/ HTTP/1.1" 307 Temporary Redirect
+                    INFO     Terminating session:         streamable_http.py:630
+                             09dfa24d02f54bf18cbb4646c67f                       
+                             74ae                                               
+INFO:     127.0.0.1:51244 - "DELETE /mcp HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58614 - "POST /mcp/ HTTP/1.1" 307 Temporary Redirect
+INFO:     127.0.0.1:58628 - "POST /mcp/ HTTP/1.1" 307 Temporary Redirect
+[10/24/25 07:44:40] INFO     Created new          streamable_http_manager.py:234
+                             transport with                                     
+                             session ID:                                        
+                             f287ffe96de24019b3d3                               
+                             c10f5df0eb32                                       
+INFO:     127.0.0.1:58628 - "POST /mcp HTTP/1.1" 200 OK
+                    INFO     Created new          streamable_http_manager.py:234
+                             transport with                                     
+                             session ID:                                        
+                             a78cdc78aefd4d129505                               
+                             9263a47702ad                                       
+INFO:     127.0.0.1:58614 - "POST /mcp HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58634 - "POST /mcp/ HTTP/1.1" 307 Temporary Redirect
+INFO:     127.0.0.1:58636 - "GET /mcp/ HTTP/1.1" 307 Temporary Redirect
+INFO:     127.0.0.1:58634 - "POST /mcp HTTP/1.1" 202 Accepted
+INFO:     127.0.0.1:58636 - "GET /mcp HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58638 - "POST /mcp/ HTTP/1.1" 307 Temporary Redirect
+INFO:     127.0.0.1:58654 - "POST /mcp/ HTTP/1.1" 307 Temporary Redirect
+INFO:     127.0.0.1:58646 - "GET /mcp/ HTTP/1.1" 307 Temporary Redirect
+INFO:     127.0.0.1:58638 - "POST /mcp HTTP/1.1" 202 Accepted
+INFO:     127.0.0.1:58646 - "GET /mcp HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58654 - "POST /mcp HTTP/1.1" 200 OK
+                    INFO     Processing request of type            server.py:625
+                             ListToolsRequest                                   
+INFO:     127.0.0.1:58658 - "POST /mcp/ HTTP/1.1" 307 Temporary Redirect
+INFO:     127.0.0.1:58674 - "DELETE /mcp/ HTTP/1.1" 307 Temporary Redirect
+                    INFO     Terminating session:         streamable_http.py:630
+                             f287ffe96de24019b3d3c10f5df0                       
+                             eb32                                               
+INFO:     127.0.0.1:58674 - "DELETE /mcp HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58658 - "POST /mcp HTTP/1.1" 200 OK
+                    INFO     Processing request of type            server.py:625
+                             ListToolsRequest                                   
+INFO:     127.0.0.1:58680 - "DELETE /mcp/ HTTP/1.1" 307 Temporary Redirect
+                    INFO     Terminating session:         streamable_http.py:630
+                             a78cdc78aefd4d1295059263a477                       
+                             02ad                                               
+INFO:     127.0.0.1:58680 - "DELETE /mcp HTTP/1.1" 200 OK
+INFO:     127.0.0.1:38312 - "POST /mcp/ HTTP/1.1" 307 Temporary Redirect
+[10/24/25 07:45:15] INFO     Created new          streamable_http_manager.py:234
+                             transport with                                     
+                             session ID:                                        
+                             903109421cdb4dab97f0                               
+                             31ac4baa21af                                       
+INFO:     127.0.0.1:38312 - "POST /mcp HTTP/1.1" 200 OK
+INFO:     127.0.0.1:38316 - "POST /mcp/ HTTP/1.1" 307 Temporary Redirect
+INFO:     127.0.0.1:38318 - "GET /mcp/ HTTP/1.1" 307 Temporary Redirect
+INFO:     127.0.0.1:38316 - "POST /mcp HTTP/1.1" 202 Accepted
+INFO:     127.0.0.1:38318 - "GET /mcp HTTP/1.1" 200 OK
+INFO:     127.0.0.1:38330 - "POST /mcp/ HTTP/1.1" 307 Temporary Redirect
+INFO:     127.0.0.1:38330 - "POST /mcp HTTP/1.1" 200 OK
+                    INFO     Processing request of type            server.py:625
+                             ListToolsRequest                                   
+INFO:     127.0.0.1:38332 - "DELETE /mcp/ HTTP/1.1" 307 Temporary Redirect
+                    INFO     Terminating session:         streamable_http.py:630
+                             903109421cdb4dab97f031ac4baa                       
+                             21af                                               
+INFO:     127.0.0.1:38332 - "DELETE /mcp HTTP/1.1" 200 OK
+INFO:     127.0.0.1:38364 - "POST /mcp/ HTTP/1.1" 307 Temporary Redirect
+                    INFO     Created new          streamable_http_manager.py:234
+                             transport with                                     
+                             session ID:                                        
+                             5429ee70dbed470081fb                               
+                             b0d8341b7fdd                                       
+INFO:     127.0.0.1:38364 - "POST /mcp HTTP/1.1" 200 OK
+INFO:     127.0.0.1:38376 - "POST /mcp/ HTTP/1.1" 307 Temporary Redirect
+INFO:     127.0.0.1:38388 - "GET /mcp/ HTTP/1.1" 307 Temporary Redirect
+INFO:     127.0.0.1:38376 - "POST /mcp HTTP/1.1" 202 Accepted
+INFO:     127.0.0.1:38388 - "GET /mcp HTTP/1.1" 200 OK
+INFO:     127.0.0.1:38396 - "POST /mcp/ HTTP/1.1" 307 Temporary Redirect
+INFO:     127.0.0.1:38396 - "POST /mcp HTTP/1.1" 200 OK
+                    INFO     Processing request of type            server.py:625
+                             ListToolsRequest                                   
+INFO:     127.0.0.1:38398 - "DELETE /mcp/ HTTP/1.1" 307 Temporary Redirect
+                    INFO     Terminating session:         streamable_http.py:630
+                             5429ee70dbed470081fbb0d8341b                       
+                             7fdd                                               
+INFO:     127.0.0.1:38398 - "DELETE /mcp HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54620 - "POST /mcp/ HTTP/1.1" 307 Temporary Redirect
+[10/24/25 07:46:24] INFO     Created new          streamable_http_manager.py:234
+                             transport with                                     
+                             session ID:                                        
+                             b60e05f80af04cc5b195                               
+                             c70abcb3043d                                       
+INFO:     127.0.0.1:54620 - "POST /mcp HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54626 - "POST /mcp/ HTTP/1.1" 307 Temporary Redirect
+INFO:     127.0.0.1:54636 - "GET /mcp/ HTTP/1.1" 307 Temporary Redirect
+INFO:     127.0.0.1:54626 - "POST /mcp HTTP/1.1" 202 Accepted
+INFO:     127.0.0.1:54636 - "GET /mcp HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54644 - "POST /mcp/ HTTP/1.1" 307 Temporary Redirect
+INFO:     127.0.0.1:54644 - "POST /mcp HTTP/1.1" 200 OK
+                    INFO     Processing request of type            server.py:625
+                             ListToolsRequest                                   
+INFO:     127.0.0.1:54656 - "DELETE /mcp/ HTTP/1.1" 307 Temporary Redirect
+                    INFO     Terminating session:         streamable_http.py:630
+                             b60e05f80af04cc5b195c70abcb3                       
+                             043d                                               
+INFO:     127.0.0.1:54656 - "DELETE /mcp HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54658 - "POST /mcp/ HTTP/1.1" 307 Temporary Redirect
+                    INFO     Created new          streamable_http_manager.py:234
+                             transport with                                     
+                             session ID:                                        
+                             8dec3d2a5ca04f1481c2                               
+                             7af447c5fb7c                                       
+INFO:     127.0.0.1:54658 - "POST /mcp HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54672 - "POST /mcp/ HTTP/1.1" 307 Temporary Redirect
+INFO:     127.0.0.1:54676 - "GET /mcp/ HTTP/1.1" 307 Temporary Redirect
+INFO:     127.0.0.1:54672 - "POST /mcp HTTP/1.1" 202 Accepted
+INFO:     127.0.0.1:54676 - "GET /mcp HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54680 - "POST /mcp/ HTTP/1.1" 307 Temporary Redirect
+INFO:     127.0.0.1:54680 - "POST /mcp HTTP/1.1" 200 OK
+[10/24/25 07:46:25] INFO     Processing request of type            server.py:625
+                             ListToolsRequest                                   
+INFO:     127.0.0.1:54694 - "DELETE /mcp/ HTTP/1.1" 307 Temporary Redirect
+                    INFO     Terminating session:         streamable_http.py:630
+                             8dec3d2a5ca04f1481c27af447c5                       
+                             fb7c                                               
+INFO:     127.0.0.1:54694 - "DELETE /mcp HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57574 - "POST /mcp/ HTTP/1.1" 307 Temporary Redirect
+[10/24/25 07:48:07] INFO     Created new          streamable_http_manager.py:234
+                             transport with                                     
+                             session ID:                                        
+                             19a7c5579c9b45e5a3e1                               
+                             823d509343f7                                       
+INFO:     127.0.0.1:57574 - "POST /mcp HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57578 - "POST /mcp/ HTTP/1.1" 307 Temporary Redirect
+INFO:     127.0.0.1:57586 - "GET /mcp/ HTTP/1.1" 307 Temporary Redirect
+INFO:     127.0.0.1:57578 - "POST /mcp HTTP/1.1" 202 Accepted
+INFO:     127.0.0.1:57586 - "GET /mcp HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57588 - "POST /mcp/ HTTP/1.1" 307 Temporary Redirect
+INFO:     127.0.0.1:57588 - "POST /mcp HTTP/1.1" 200 OK
+                    INFO     Processing request of type            server.py:625
+                             ListToolsRequest                                   
+INFO:     127.0.0.1:57592 - "DELETE /mcp/ HTTP/1.1" 307 Temporary Redirect
+                    INFO     Terminating session:         streamable_http.py:630
+                             19a7c5579c9b45e5a3e1823d5093                       
+                             43f7                                               
+INFO:     127.0.0.1:57592 - "DELETE /mcp HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57596 - "POST /mcp/ HTTP/1.1" 307 Temporary Redirect
+[10/24/25 07:48:08] INFO     Created new          streamable_http_manager.py:234
+                             transport with                                     
+                             session ID:                                        
+                             d7ab4843a25b41398d31                               
+                             e117867682ee                                       
+INFO:     127.0.0.1:57596 - "POST /mcp HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57602 - "POST /mcp/ HTTP/1.1" 307 Temporary Redirect
+INFO:     127.0.0.1:57608 - "GET /mcp/ HTTP/1.1" 307 Temporary Redirect
+INFO:     127.0.0.1:57602 - "POST /mcp HTTP/1.1" 202 Accepted
+INFO:     127.0.0.1:57608 - "GET /mcp HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57616 - "POST /mcp/ HTTP/1.1" 307 Temporary Redirect
+INFO:     127.0.0.1:57616 - "POST /mcp HTTP/1.1" 200 OK
+                    INFO     Processing request of type            server.py:625
+                             ListToolsRequest                                   
+INFO:     127.0.0.1:57628 - "DELETE /mcp/ HTTP/1.1" 307 Temporary Redirect
+                    INFO     Terminating session:         streamable_http.py:630
+                             d7ab4843a25b41398d31e1178676                       
+                             82ee                                               
+INFO:     127.0.0.1:57628 - "DELETE /mcp HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50742 - "POST /mcp/ HTTP/1.1" 307 Temporary Redirect
+[10/24/25 07:51:11] INFO     Created new          streamable_http_manager.py:234
+                             transport with                                     
+                             session ID:                                        
+                             738ea9eba8a146dfa555                               
+                             c196915f12af                                       
+INFO:     127.0.0.1:50742 - "POST /mcp HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50756 - "POST /mcp/ HTTP/1.1" 307 Temporary Redirect
+INFO:     127.0.0.1:50762 - "GET /mcp/ HTTP/1.1" 307 Temporary Redirect
+INFO:     127.0.0.1:50756 - "POST /mcp HTTP/1.1" 202 Accepted
+INFO:     127.0.0.1:50762 - "GET /mcp HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50764 - "POST /mcp/ HTTP/1.1" 307 Temporary Redirect
+INFO:     127.0.0.1:50764 - "POST /mcp HTTP/1.1" 200 OK
+                    INFO     Processing request of type            server.py:625
+                             ListToolsRequest                                   
+INFO:     127.0.0.1:50776 - "POST /mcp/ HTTP/1.1" 307 Temporary Redirect
+INFO:     127.0.0.1:50792 - "DELETE /mcp/ HTTP/1.1" 307 Temporary Redirect
+                    INFO     Created new          streamable_http_manager.py:234
+                             transport with                                     
+                             session ID:                                        
+                             0ec61532a2084866a794                               
+                             5fea9107e935                                       
+INFO:     127.0.0.1:50776 - "POST /mcp HTTP/1.1" 200 OK
+                    INFO     Terminating session:         streamable_http.py:630
+                             738ea9eba8a146dfa555c196915f                       
+                             12af                                               
+INFO:     127.0.0.1:50792 - "DELETE /mcp HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50796 - "POST /mcp/ HTTP/1.1" 307 Temporary Redirect
+INFO:     127.0.0.1:50810 - "GET /mcp/ HTTP/1.1" 307 Temporary Redirect
+INFO:     127.0.0.1:50796 - "POST /mcp HTTP/1.1" 202 Accepted
+INFO:     127.0.0.1:50810 - "GET /mcp HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50820 - "POST /mcp/ HTTP/1.1" 307 Temporary Redirect
+INFO:     127.0.0.1:50820 - "POST /mcp HTTP/1.1" 200 OK
+                    INFO     Processing request of type            server.py:625
+                             ListToolsRequest                                   
+INFO:     127.0.0.1:50834 - "DELETE /mcp/ HTTP/1.1" 307 Temporary Redirect
+                    INFO     Terminating session:         streamable_http.py:630
+                             0ec61532a2084866a7945fea9107                       
+                             e935                                               
+INFO:     127.0.0.1:50834 - "DELETE /mcp HTTP/1.1" 200 OK
+INFO:     127.0.0.1:42584 - "POST /mcp/ HTTP/1.1" 307 Temporary Redirect
+[10/24/25 07:54:04] INFO     Created new          streamable_http_manager.py:234
+                             transport with                                     
+                             session ID:                                        
+                             688caf2270494f538229                               
+                             cdbec538a325                                       
+INFO:     127.0.0.1:42584 - "POST /mcp HTTP/1.1" 200 OK
+INFO:     127.0.0.1:42590 - "POST /mcp/ HTTP/1.1" 307 Temporary Redirect
+INFO:     127.0.0.1:42596 - "GET /mcp/ HTTP/1.1" 307 Temporary Redirect
+INFO:     127.0.0.1:42590 - "POST /mcp HTTP/1.1" 202 Accepted
+INFO:     127.0.0.1:42596 - "GET /mcp HTTP/1.1" 200 OK
+INFO:     127.0.0.1:42608 - "POST /mcp/ HTTP/1.1" 307 Temporary Redirect
+INFO:     127.0.0.1:42608 - "POST /mcp HTTP/1.1" 200 OK
+                    INFO     Processing request of type            server.py:625
+                             ListToolsRequest                                   
+INFO:     127.0.0.1:42622 - "DELETE /mcp/ HTTP/1.1" 307 Temporary Redirect
+                    INFO     Terminating session:         streamable_http.py:630
+                             688caf2270494f538229cdbec538                       
+                             a325                                               
+INFO:     127.0.0.1:42622 - "DELETE /mcp HTTP/1.1" 200 OK
+INFO:     127.0.0.1:42628 - "POST /mcp/ HTTP/1.1" 307 Temporary Redirect
+                    INFO     Created new          streamable_http_manager.py:234
+                             transport with                                     
+                             session ID:                                        
+                             5e5628c9608b4844afda                               
+                             977097b1417d                                       
+INFO:     127.0.0.1:42628 - "POST /mcp HTTP/1.1" 200 OK
+INFO:     127.0.0.1:42638 - "POST /mcp/ HTTP/1.1" 307 Temporary Redirect
+INFO:     127.0.0.1:42646 - "GET /mcp/ HTTP/1.1" 307 Temporary Redirect
+INFO:     127.0.0.1:42638 - "POST /mcp HTTP/1.1" 202 Accepted
+INFO:     127.0.0.1:42646 - "GET /mcp HTTP/1.1" 200 OK
+INFO:     127.0.0.1:42648 - "POST /mcp/ HTTP/1.1" 307 Temporary Redirect
+INFO:     127.0.0.1:42648 - "POST /mcp HTTP/1.1" 200 OK
+                    INFO     Processing request of type            server.py:625
+                             ListToolsRequest                                   
+INFO:     127.0.0.1:42658 - "DELETE /mcp/ HTTP/1.1" 307 Temporary Redirect
+                    INFO     Terminating session:         streamable_http.py:630
+                             5e5628c9608b4844afda977097b1                       
+                             417d                                               
+INFO:     127.0.0.1:42658 - "DELETE /mcp HTTP/1.1" 200 OK
+INFO:     127.0.0.1:45756 - "POST /mcp/ HTTP/1.1" 307 Temporary Redirect
+[10/24/25 08:10:04] INFO     Created new          streamable_http_manager.py:234
+                             transport with                                     
+                             session ID:                                        
+                             f71dc216ea32436fbdfa                               
+                             44c3c57a865d                                       
+INFO:     127.0.0.1:45756 - "POST /mcp HTTP/1.1" 200 OK
+INFO:     127.0.0.1:45760 - "POST /mcp/ HTTP/1.1" 307 Temporary Redirect
+INFO:     127.0.0.1:45772 - "GET /mcp/ HTTP/1.1" 307 Temporary Redirect
+INFO:     127.0.0.1:45772 - "GET /mcp HTTP/1.1" 200 OK
+INFO:     127.0.0.1:45760 - "POST /mcp HTTP/1.1" 202 Accepted
+INFO:     127.0.0.1:45788 - "POST /mcp/ HTTP/1.1" 307 Temporary Redirect
+INFO:     127.0.0.1:45788 - "POST /mcp HTTP/1.1" 200 OK
+                    INFO     Processing request of type            server.py:625
+                             ListToolsRequest                                   
+INFO:     127.0.0.1:45802 - "DELETE /mcp/ HTTP/1.1" 307 Temporary Redirect
+                    INFO     Terminating session:         streamable_http.py:630
+                             f71dc216ea32436fbdfa44c3c57a                       
+                             865d                                               
+INFO:     127.0.0.1:45802 - "DELETE /mcp HTTP/1.1" 200 OK
+INFO:     127.0.0.1:47466 - "POST /mcp/ HTTP/1.1" 307 Temporary Redirect
+[10/24/25 08:10:27] INFO     Created new          streamable_http_manager.py:234
+                             transport with                                     
+                             session ID:                                        
+                             5c56016096a64ca9bd6f                               
+                             ffc0135123f7                                       
+INFO:     127.0.0.1:47466 - "POST /mcp HTTP/1.1" 200 OK
+INFO:     127.0.0.1:47468 - "POST /mcp/ HTTP/1.1" 307 Temporary Redirect
+INFO:     127.0.0.1:47484 - "GET /mcp/ HTTP/1.1" 307 Temporary Redirect
+INFO:     127.0.0.1:47468 - "POST /mcp HTTP/1.1" 202 Accepted
+INFO:     127.0.0.1:47484 - "GET /mcp HTTP/1.1" 200 OK
+INFO:     127.0.0.1:47498 - "POST /mcp/ HTTP/1.1" 307 Temporary Redirect
+INFO:     127.0.0.1:47498 - "POST /mcp HTTP/1.1" 200 OK
+                    INFO     Processing request of type            server.py:625
+                             ListToolsRequest                                   
+INFO:     127.0.0.1:47502 - "DELETE /mcp/ HTTP/1.1" 307 Temporary Redirect
+                    INFO     Terminating session:         streamable_http.py:630
+                             5c56016096a64ca9bd6fffc01351                       
+                             23f7                                               
+INFO:     127.0.0.1:47502 - "DELETE /mcp HTTP/1.1" 200 OK
+INFO:     127.0.0.1:47510 - "POST /mcp/ HTTP/1.1" 307 Temporary Redirect
+                    INFO     Created new          streamable_http_manager.py:234
+                             transport with                                     
+                             session ID:                                        
+                             731895327286496d8eb2                               
+                             7cad8bb26092                                       
+INFO:     127.0.0.1:47510 - "POST /mcp HTTP/1.1" 200 OK
+INFO:     127.0.0.1:47524 - "POST /mcp/ HTTP/1.1" 307 Temporary Redirect
+INFO:     127.0.0.1:47532 - "GET /mcp/ HTTP/1.1" 307 Temporary Redirect
+INFO:     127.0.0.1:47524 - "POST /mcp HTTP/1.1" 202 Accepted
+INFO:     127.0.0.1:47532 - "GET /mcp HTTP/1.1" 200 OK
+INFO:     127.0.0.1:47534 - "POST /mcp/ HTTP/1.1" 307 Temporary Redirect
+INFO:     127.0.0.1:47534 - "POST /mcp HTTP/1.1" 200 OK
+                    INFO     Processing request of type            server.py:625
+                             ListToolsRequest                                   
+INFO:     127.0.0.1:47548 - "DELETE /mcp/ HTTP/1.1" 307 Temporary Redirect
+                    INFO     Terminating session:         streamable_http.py:630
+                             731895327286496d8eb27cad8bb2                       
+                             6092                                               
+INFO:     127.0.0.1:47548 - "DELETE /mcp HTTP/1.1" 200 OK
+INFO:     127.0.0.1:42056 - "POST /mcp/ HTTP/1.1" 307 Temporary Redirect
+[10/24/25 08:10:59] INFO     Created new          streamable_http_manager.py:234
+                             transport with                                     
+                             session ID:                                        
+                             88df538985a34fb3b014                               
+                             b4d7c06ee754                                       
+INFO:     127.0.0.1:42056 - "POST /mcp HTTP/1.1" 200 OK
+INFO:     127.0.0.1:42064 - "POST /mcp/ HTTP/1.1" 307 Temporary Redirect
+INFO:     127.0.0.1:42066 - "GET /mcp/ HTTP/1.1" 307 Temporary Redirect
+INFO:     127.0.0.1:42064 - "POST /mcp HTTP/1.1" 202 Accepted
+INFO:     127.0.0.1:42066 - "GET /mcp HTTP/1.1" 200 OK
+INFO:     127.0.0.1:42074 - "POST /mcp/ HTTP/1.1" 307 Temporary Redirect
+INFO:     127.0.0.1:42074 - "POST /mcp HTTP/1.1" 200 OK
+                    INFO     Processing request of type            server.py:625
+                             ListToolsRequest                                   
+INFO:     127.0.0.1:42090 - "DELETE /mcp/ HTTP/1.1" 307 Temporary Redirect
+                    INFO     Terminating session:         streamable_http.py:630
+                             88df538985a34fb3b014b4d7c06e                       
+                             e754                                               
+INFO:     127.0.0.1:42090 - "DELETE /mcp HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59642 - "POST /mcp/ HTTP/1.1" 307 Temporary Redirect
+[10/24/25 08:11:39] INFO     Created new          streamable_http_manager.py:234
+                             transport with                                     
+                             session ID:                                        
+                             5c399ef23ac140a58b13                               
+                             9643d72b89b0                                       
+INFO:     127.0.0.1:59642 - "POST /mcp HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59652 - "POST /mcp/ HTTP/1.1" 307 Temporary Redirect
+INFO:     127.0.0.1:59662 - "GET /mcp/ HTTP/1.1" 307 Temporary Redirect
+INFO:     127.0.0.1:59652 - "POST /mcp HTTP/1.1" 202 Accepted
+INFO:     127.0.0.1:59662 - "GET /mcp HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59668 - "POST /mcp/ HTTP/1.1" 307 Temporary Redirect
+INFO:     127.0.0.1:59668 - "POST /mcp HTTP/1.1" 200 OK
+                    INFO     Processing request of type            server.py:625
+                             ListToolsRequest                                   
+INFO:     127.0.0.1:59676 - "DELETE /mcp/ HTTP/1.1" 307 Temporary Redirect
+                    INFO     Terminating session:         streamable_http.py:630
+                             5c399ef23ac140a58b139643d72b                       
+                             89b0                                               
+INFO:     127.0.0.1:59676 - "DELETE /mcp HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58080 - "POST /mcp/ HTTP/1.1" 307 Temporary Redirect
+[10/24/25 08:11:46] INFO     Created new          streamable_http_manager.py:234
+                             transport with                                     
+                             session ID:                                        
+                             833a762c4ab04ecfb885                               
+                             40cc7c90737e                                       
+INFO:     127.0.0.1:58080 - "POST /mcp HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58082 - "POST /mcp/ HTTP/1.1" 307 Temporary Redirect
+INFO:     127.0.0.1:58096 - "GET /mcp/ HTTP/1.1" 307 Temporary Redirect
+INFO:     127.0.0.1:58082 - "POST /mcp HTTP/1.1" 202 Accepted
+INFO:     127.0.0.1:58096 - "GET /mcp HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58098 - "POST /mcp/ HTTP/1.1" 307 Temporary Redirect
+INFO:     127.0.0.1:58098 - "POST /mcp HTTP/1.1" 200 OK
+                    INFO     Processing request of type            server.py:625
+                             ListToolsRequest                                   
+INFO:     127.0.0.1:58114 - "DELETE /mcp/ HTTP/1.1" 307 Temporary Redirect
+                    INFO     Terminating session:         streamable_http.py:630
+                             833a762c4ab04ecfb88540cc7c90                       
+                             737e                                               
+INFO:     127.0.0.1:58114 - "DELETE /mcp HTTP/1.1" 200 OK
+INFO:     127.0.0.1:35706 - "POST /mcp/ HTTP/1.1" 307 Temporary Redirect
+[10/24/25 08:13:48] INFO     Created new          streamable_http_manager.py:234
+                             transport with                                     
+                             session ID:                                        
+                             9afb6263235341ad91a1                               
+                             8f7080a6dc72                                       
+INFO:     127.0.0.1:35706 - "POST /mcp HTTP/1.1" 200 OK
+INFO:     127.0.0.1:35708 - "POST /mcp/ HTTP/1.1" 307 Temporary Redirect
+INFO:     127.0.0.1:35712 - "GET /mcp/ HTTP/1.1" 307 Temporary Redirect
+INFO:     127.0.0.1:35712 - "GET /mcp HTTP/1.1" 200 OK
+INFO:     127.0.0.1:35708 - "POST /mcp HTTP/1.1" 202 Accepted
+INFO:     127.0.0.1:35724 - "POST /mcp/ HTTP/1.1" 307 Temporary Redirect
+INFO:     127.0.0.1:35724 - "POST /mcp HTTP/1.1" 200 OK
+                    INFO     Processing request of type            server.py:625
+                             ListToolsRequest                                   
+INFO:     127.0.0.1:35740 - "DELETE /mcp/ HTTP/1.1" 307 Temporary Redirect
+                    INFO     Terminating session:         streamable_http.py:630
+                             9afb6263235341ad91a18f7080a6                       
+                             dc72                                               
+INFO:     127.0.0.1:35740 - "DELETE /mcp HTTP/1.1" 200 OK
+INFO:     127.0.0.1:35752 - "POST /mcp/ HTTP/1.1" 307 Temporary Redirect
+                    INFO     Created new          streamable_http_manager.py:234
+                             transport with                                     
+                             session ID:                                        
+                             7f33684086e444f2a012                               
+                             e3d06ba69c75                                       
+INFO:     127.0.0.1:35752 - "POST /mcp HTTP/1.1" 200 OK
+INFO:     127.0.0.1:35768 - "POST /mcp/ HTTP/1.1" 307 Temporary Redirect
+INFO:     127.0.0.1:35776 - "GET /mcp/ HTTP/1.1" 307 Temporary Redirect
+INFO:     127.0.0.1:35776 - "GET /mcp HTTP/1.1" 200 OK
+INFO:     127.0.0.1:35768 - "POST /mcp HTTP/1.1" 202 Accepted
+INFO:     127.0.0.1:35790 - "POST /mcp/ HTTP/1.1" 307 Temporary Redirect
+INFO:     127.0.0.1:35790 - "POST /mcp HTTP/1.1" 200 OK
+                    INFO     Processing request of type            server.py:625
+                             ListToolsRequest                                   
+INFO:     127.0.0.1:35804 - "DELETE /mcp/ HTTP/1.1" 307 Temporary Redirect
+                    INFO     Terminating session:         streamable_http.py:630
+                             7f33684086e444f2a012e3d06ba6                       
+                             9c75                                               
+INFO:     127.0.0.1:35804 - "DELETE /mcp HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59990 - "POST /mcp/ HTTP/1.1" 307 Temporary Redirect
+[10/24/25 08:13:55] INFO     Created new          streamable_http_manager.py:234
+                             transport with                                     
+                             session ID:                                        
+                             8c4734d5bfba4d4c8d29                               
+                             178d029f6dc9                                       
+INFO:     127.0.0.1:59990 - "POST /mcp HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60000 - "POST /mcp/ HTTP/1.1" 307 Temporary Redirect
+INFO:     127.0.0.1:60012 - "GET /mcp/ HTTP/1.1" 307 Temporary Redirect
+INFO:     127.0.0.1:60000 - "POST /mcp HTTP/1.1" 202 Accepted
+INFO:     127.0.0.1:60012 - "GET /mcp HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60018 - "POST /mcp/ HTTP/1.1" 307 Temporary Redirect
+INFO:     127.0.0.1:60018 - "POST /mcp HTTP/1.1" 200 OK
+                    INFO     Processing request of type            server.py:625
+                             ListToolsRequest                                   
+INFO:     127.0.0.1:60026 - "DELETE /mcp/ HTTP/1.1" 307 Temporary Redirect
+                    INFO     Terminating session:         streamable_http.py:630
+                             8c4734d5bfba4d4c8d29178d029f                       
+                             6dc9                                               
+INFO:     127.0.0.1:60026 - "DELETE /mcp HTTP/1.1" 200 OK
