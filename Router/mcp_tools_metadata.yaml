@@ -1,0 +1,422 @@
+# MCP Tools Metadata Configuration
+# Defines tool specifications, schemas, and metadata for universal orchestration
+# 定义工具规范、模式和元数据，用于通用编排
+
+# Tool Categories / 工具分类
+categories:
+  data_retrieval:
+    description: "Tools that retrieve or query data from external sources"
+    description_cn: "从外部源检索或查询数据的工具"
+
+  visualization:
+    description: "Tools that create charts, graphs, and visualizations"
+    description_cn: "创建图表、图形和可视化的工具"
+
+  analysis:
+    description: "Tools that analyze, process, or transform data"
+    description_cn: "分析、处理或转换数据的工具"
+
+  device_management:
+    description: "Tools that manage or query device information"
+    description_cn: "管理或查询设备信息的工具"
+
+# Tool Definitions / 工具定义
+tools:
+  # JIRA Tools
+  query_jira_issues:
+    category: data_retrieval
+    mcp_server: "JIRAExtractor"
+    port: 8004
+    description: "Query JIRA issues with filters"
+    description_cn: "使用过滤器查询JIRA问题"
+
+    input_schema:
+      type: object
+      properties:
+        component:
+          type: string
+          description: "Component name (e.g., S65, S12)"
+          pattern: "^S\\d+$"
+        status:
+          type: string
+          enum: ["Open", "Closed", "In Progress", "Resolved"]
+          description: "Issue status filter"
+        year:
+          type: string
+          pattern: "^20\\d{2}$"
+          description: "Year filter (e.g., 2025)"
+        days_updated:
+          type: integer
+          description: "Issues updated in last N days"
+          default: 30
+
+    output_schema:
+      type: object
+      properties:
+        success:
+          type: boolean
+        issues:
+          type: array
+          items:
+            type: object
+            properties:
+              Key: {type: string}
+              Summary: {type: string}
+              Status: {type: string}
+              Component: {type: string}
+              Created: {type: string}
+              Updated: {type: string}
+        statistics:
+          type: object
+          properties:
+            by_status:
+              type: object
+              description: "Count of issues by status"
+            by_vendor:
+              type: object
+              description: "Count of issues by vendor/component"
+            total_count:
+              type: integer
+        formatted_report:
+          type: string
+          description: "Human-readable formatted report"
+      output_type: "jira_issues"
+
+    tags: ["jira", "issue", "bug", "ticket", "query"]
+    keywords: ["jira", "issue", "bug", "ticket", "problem"]
+
+  get_issue_statistics:
+    category: analysis
+    mcp_server: "JIRAExtractor"
+    port: 8004
+    description: "Get statistical summary of JIRA issues"
+    description_cn: "获取JIRA问题的统计摘要"
+
+    input_schema:
+      type: object
+      properties:
+        component:
+          type: string
+          description: "Component name"
+        days_updated:
+          type: integer
+          default: 30
+
+    output_schema:
+      type: object
+      properties:
+        success: {type: boolean}
+        statistics:
+          type: object
+          properties:
+            by_status: {type: object}
+            by_vendor: {type: object}
+            total_count: {type: integer}
+        formatted_report: {type: string}
+      output_type: "jira_statistics"
+
+    tags: ["statistics", "stats", "summary", "jira"]
+    keywords: ["statistics", "stats", "summary", "count", "aggregate"]
+
+  # Chart/Visualization Tools
+  generate_pie_chart:
+    category: visualization
+    mcp_server: "Chart"
+    port: 8005
+    description: "Generate a pie chart from data"
+    description_cn: "从数据生成饼图"
+
+    input_schema:
+      type: object
+      required: ["data"]
+      properties:
+        data:
+          type: array
+          items:
+            type: object
+            required: ["category", "value"]
+            properties:
+              category: {type: string}
+              value: {type: number}
+          description: "Data in format [{category: str, value: num}]"
+        title:
+          type: string
+          description: "Chart title"
+          default: "Pie Chart"
+        colors:
+          type: array
+          items: {type: string}
+          description: "Optional color scheme"
+
+    output_schema:
+      type: object
+      properties:
+        success: {type: boolean}
+        chart_url: {type: string}
+        chart_base64: {type: string}
+        message: {type: string}
+      output_type: "chart_image"
+
+    tags: ["chart", "pie", "visualization", "graph"]
+    keywords: ["pie", "chart", "圆饼图", "饼图"]
+
+  generate_bar_chart:
+    category: visualization
+    mcp_server: "Chart"
+    port: 8005
+    description: "Generate a bar chart from data"
+    description_cn: "从数据生成柱状图"
+
+    input_schema:
+      type: object
+      required: ["data"]
+      properties:
+        data:
+          type: array
+          items:
+            type: object
+            required: ["category", "value"]
+            properties:
+              category: {type: string}
+              value: {type: number}
+        title: {type: string, default: "Bar Chart"}
+        xlabel: {type: string}
+        ylabel: {type: string}
+
+    output_schema:
+      type: object
+      properties:
+        success: {type: boolean}
+        chart_url: {type: string}
+        chart_base64: {type: string}
+        message: {type: string}
+      output_type: "chart_image"
+
+    tags: ["chart", "bar", "visualization", "graph"]
+    keywords: ["bar", "chart", "柱状图", "条形图"]
+
+  generate_line_chart:
+    category: visualization
+    mcp_server: "Chart"
+    port: 8005
+    description: "Generate a line chart for trends"
+    description_cn: "生成趋势折线图"
+
+    input_schema:
+      type: object
+      required: ["data"]
+      properties:
+        data:
+          type: array
+          items:
+            type: object
+            properties:
+              x: {type: [string, number]}
+              y: {type: number}
+        title: {type: string, default: "Line Chart"}
+        xlabel: {type: string}
+        ylabel: {type: string}
+
+    output_schema:
+      type: object
+      properties:
+        success: {type: boolean}
+        chart_url: {type: string}
+        chart_base64: {type: string}
+        message: {type: string}
+      output_type: "chart_image"
+
+    tags: ["chart", "line", "trend", "visualization", "graph"]
+    keywords: ["line", "trend", "chart", "折线图", "趋势"]
+
+  generate_column_chart:
+    category: visualization
+    mcp_server: "Chart"
+    port: 8005
+    description: "Generate a column chart"
+    description_cn: "生成列图"
+
+    input_schema:
+      type: object
+      required: ["data"]
+      properties:
+        data:
+          type: array
+          items:
+            type: object
+            properties:
+              category: {type: string}
+              value: {type: number}
+        title: {type: string, default: "Column Chart"}
+
+    output_schema:
+      type: object
+      properties:
+        success: {type: boolean}
+        chart_url: {type: string}
+        chart_base64: {type: string}
+        message: {type: string}
+      output_type: "chart_image"
+
+    tags: ["chart", "column", "visualization", "graph"]
+    keywords: ["column", "chart", "柱图"]
+
+  # Device Management Tools
+  DU_Name_IP_Mapping:
+    category: device_management
+    mcp_server: "DU_Name_IP_Mapping"
+    port: 8000
+    description: "Query device name to IP mappings"
+    description_cn: "查询设备名称到IP的映射"
+
+    input_schema:
+      type: object
+      properties:
+        device_name:
+          type: string
+          description: "Device name pattern to search"
+
+    output_schema:
+      type: object
+      properties:
+        success: {type: boolean}
+        mappings:
+          type: array
+          items:
+            type: object
+            properties:
+              device_name: {type: string}
+              ip_address: {type: string}
+              status: {type: string}
+        message: {type: string}
+      output_type: "device_mappings"
+
+    tags: ["device", "ip", "mapping", "network"]
+    keywords: ["device", "ip", "mapping", "设备", "地址"]
+
+  DU_UP_Search:
+    category: device_management
+    mcp_server: "DU_UP_Search"
+    port: 8001
+    description: "Search for DU-UP information"
+    description_cn: "搜索DU-UP信息"
+
+    input_schema:
+      type: object
+      properties:
+        du_name:
+          type: string
+          description: "DU name to search"
+        search_criteria:
+          type: object
+          description: "Additional search criteria"
+
+    output_schema:
+      type: object
+      properties:
+        success: {type: boolean}
+        du_up_info:
+          type: array
+          items:
+            type: object
+            properties:
+              du_name: {type: string}
+              up_name: {type: string}
+              status: {type: string}
+              metrics: {type: object}
+        message: {type: string}
+      output_type: "du_up_data"
+
+    tags: ["du", "up", "search", "device"]
+    keywords: ["du", "up", "search", "设备"]
+
+# Data Type Transformations / 数据类型转换
+# Defines how to transform one output type to another input type
+# 定义如何将一种输出类型转换为另一种输入类型
+
+transformations:
+  # JIRA Issues -> Chart Data
+  jira_issues_to_chart_data:
+    from_type: "jira_issues"
+    to_type: "chart_data"
+    description: "Transform JIRA issues to chart-compatible format"
+    description_cn: "将JIRA问题转换为图表兼容格式"
+
+    strategies:
+      by_status:
+        description: "Group by status field"
+        source_path: "statistics.by_status"
+        transform_logic: "dict_to_category_value_pairs"
+
+      by_vendor:
+        description: "Group by vendor/component"
+        source_path: "statistics.by_vendor"
+        transform_logic: "dict_to_category_value_pairs"
+
+      issue_list:
+        description: "Count from issue list"
+        source_path: "issues"
+        transform_logic: "count_by_field"
+        field: "Status"
+
+  # JIRA Statistics -> Chart Data
+  jira_statistics_to_chart_data:
+    from_type: "jira_statistics"
+    to_type: "chart_data"
+    description: "Transform JIRA statistics to chart format"
+    strategies:
+      by_status:
+        source_path: "statistics.by_status"
+        transform_logic: "dict_to_category_value_pairs"
+      by_vendor:
+        source_path: "statistics.by_vendor"
+        transform_logic: "dict_to_category_value_pairs"
+
+  # Device Mappings -> Chart Data
+  device_mappings_to_chart_data:
+    from_type: "device_mappings"
+    to_type: "chart_data"
+    description: "Transform device mappings to chart format"
+    strategies:
+      by_status:
+        source_path: "mappings"
+        transform_logic: "count_by_field"
+        field: "status"
+
+  # DU-UP Data -> Chart Data
+  du_up_data_to_chart_data:
+    from_type: "du_up_data"
+    to_type: "chart_data"
+    description: "Transform DU-UP data to chart format"
+    strategies:
+      by_status:
+        source_path: "du_up_info"
+        transform_logic: "count_by_field"
+        field: "status"
+      by_metric:
+        source_path: "du_up_info"
+        transform_logic: "extract_metric_values"
+        metric_field: "metrics"
+
+# Transform Logic Definitions / 转换逻辑定义
+transform_logic_types:
+  dict_to_category_value_pairs:
+    description: "Convert dict {key: value} to [{category: key, value: value}]"
+    python_equivalent: |
+      lambda d: [{"category": k, "value": v} for k, v in d.items()]
+
+  count_by_field:
+    description: "Count occurrences of field values in list"
+    python_equivalent: |
+      lambda items, field: [
+        {"category": val, "value": count}
+        for val, count in Counter(item[field] for item in items).items()
+      ]
+
+  extract_metric_values:
+    description: "Extract metric values from nested objects"
+    python_equivalent: |
+      lambda items, metric_field: [
+        {"category": item["du_name"], "value": item[metric_field].get("value", 0)}
+        for item in items if metric_field in item
+      ]

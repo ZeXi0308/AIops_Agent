@@ -1,0 +1,506 @@
+# MCP Orchestration Rules Configuration
+# Defines workflow patterns for multi-MCP server orchestration
+# 定义多MCP服务器编排的工作流模式
+
+# Global Settings / 全局设置
+settings:
+  default_timeout: 300  # seconds
+  max_parallel_tasks: 5
+  enable_caching: true
+  log_level: INFO
+
+# Orchestration Rules / 编排规则
+# Each rule defines a pattern of MCP tool calls to handle specific queries
+# 每个规则定义一种MCP工具调用模式来处理特定查询
+
+rules:
+  # Rule 1: JIRA Issues + Pie Chart
+  jira_issues_pie_chart:
+    name: "JIRA Issues + Pie Chart"
+    name_cn: "JIRA问题 + 饼图"
+    description: "Query JIRA issues and visualize with pie chart"
+    description_cn: "查询JIRA问题并用饼图可视化"
+    priority: 100  # Higher priority rules are matched first
+
+    # Trigger Conditions / 触发条件
+    trigger:
+      # All of these keyword groups must be present
+      keywords_all:
+        - group1: ["jira", "issue", "bug", "ticket"]
+        - group2: ["pie", "chart", "饼图"]
+
+      # Optional: At least one from these keywords
+      keywords_any:
+        - ["show", "display", "create", "generate", "显示", "创建"]
+
+      # Optional: None of these keywords should be present
+      keywords_none:
+        - ["delete", "remove", "cancel"]
+
+      # Optional: Regex patterns to match
+      patterns:
+        - "S\\d+"  # Component pattern like S65, S12
+
+    # Task Sequence / 任务序列
+    tasks:
+      - task_id: "query_jira"
+        tool: "query_jira_issues"
+        description: "Query JIRA issues"
+
+        # Parameter Extraction Rules
+        parameters:
+          component:
+            source: "query"
+            extractor: "regex"
+            pattern: "S\\d+"
+            transform: "uppercase"
+            required: false
+
+          status:
+            source: "query"
+            extractor: "keyword_match"
+            keywords:
+              - ["open", "opened"]: "Open"
+              - ["closed", "resolved"]: "Closed"
+              - ["progress", "in progress", "working"]: "In Progress"
+            default: null
+            required: false
+
+          year:
+            source: "query"
+            extractor: "regex"
+            pattern: "20\\d{2}"
+            required: false
+
+        # Output configuration
+        output:
+          key: "jira_data"
+          type: "jira_issues"
+
+      - task_id: "create_pie_chart"
+        tool: "generate_pie_chart"
+        description: "Generate pie chart from JIRA data"
+
+        # Dependencies
+        depends_on: ["query_jira"]
+
+        # Parameters with data transformation
+        parameters:
+          data:
+            source: "task_output"
+            task_id: "query_jira"
+            transform:
+              from_type: "jira_issues"
+              to_type: "chart_data"
+              strategy: "by_status"  # Can be overridden by query context
+
+          title:
+            source: "static"
+            value: "JIRA Issue Distribution"
+
+        output:
+          key: "chart_result"
+          type: "chart_image"
+
+    # Output Formatting / 输出格式化
+    output_format:
+      template: |
+        📊 **JIRA Issues & Pie Chart**
+
+        {jira_data.formatted_report}
+
+        📈 **Visualization:**
+        {chart_result.message}
+
+        Chart URL: {chart_result.chart_url}
+
+  # Rule 2: JIRA Issues + Bar Chart
+  jira_issues_bar_chart:
+    name: "JIRA Issues + Bar Chart"
+    name_cn: "JIRA问题 + 柱状图"
+    description: "Query JIRA issues and visualize with bar chart"
+    priority: 95
+
+    trigger:
+      keywords_all:
+        - group1: ["jira", "issue", "bug"]
+        - group2: ["bar", "柱状图", "条形图"]
+
+    tasks:
+      - task_id: "query_jira"
+        tool: "query_jira_issues"
+        parameters:
+          component:
+            source: "query"
+            extractor: "regex"
+            pattern: "S\\d+"
+            transform: "uppercase"
+          status:
+            source: "query"
+            extractor: "keyword_match"
+            keywords:
+              - ["open"]: "Open"
+              - ["closed"]: "Closed"
+        output:
+          key: "jira_data"
+          type: "jira_issues"
+
+      - task_id: "create_bar_chart"
+        tool: "generate_bar_chart"
+        depends_on: ["query_jira"]
+        parameters:
+          data:
+            source: "task_output"
+            task_id: "query_jira"
+            transform:
+              from_type: "jira_issues"
+              to_type: "chart_data"
+              strategy: "by_status"
+          title:
+            source: "static"
+            value: "JIRA Issue Status Distribution"
+          xlabel:
+            source: "static"
+            value: "Status"
+          ylabel:
+            source: "static"
+            value: "Count"
+        output:
+          key: "chart_result"
+          type: "chart_image"
+
+    output_format:
+      template: |
+        📊 **JIRA Issues & Bar Chart**
+
+        {jira_data.formatted_report}
+
+        📊 Chart: {chart_result.chart_url}
+
+  # Rule 3: JIRA Statistics + Visualization
+  jira_statistics_chart:
+    name: "JIRA Statistics + Chart"
+    name_cn: "JIRA统计 + 图表"
+    description: "Get JIRA statistics and visualize"
+    priority: 90
+
+    trigger:
+      keywords_all:
+        - group1: ["statistics", "stats", "统计", "summary"]
+        - group2: ["visualize", "chart", "graph", "可视化", "图表"]
+      keywords_any:
+        - ["jira", "issue", "bug"]
+
+    tasks:
+      - task_id: "get_stats"
+        tool: "get_issue_statistics"
+        parameters:
+          component:
+            source: "query"
+            extractor: "regex"
+            pattern: "S\\d+"
+            transform: "uppercase"
+          days_updated:
+            source: "query"
+            extractor: "time_range"
+            patterns:
+              - ["last week", "past week"]: 7
+              - ["last month", "past month"]: 30
+              - ["last \\d+ days"]: "extract_number"
+            default: 30
+        output:
+          key: "stats_data"
+          type: "jira_statistics"
+
+      - task_id: "visualize_stats"
+        tool: "generate_column_chart"
+        depends_on: ["get_stats"]
+        parameters:
+          data:
+            source: "task_output"
+            task_id: "get_stats"
+            transform:
+              from_type: "jira_statistics"
+              to_type: "chart_data"
+              strategy: "by_vendor"  # or by_status
+          title:
+            source: "static"
+            value: "JIRA Issue Statistics"
+        output:
+          key: "chart_result"
+          type: "chart_image"
+
+    output_format:
+      template: |
+        📈 **JIRA Statistics & Visualization**
+
+        {stats_data.formatted_report}
+
+        📊 Chart: {chart_result.chart_url}
+
+  # Rule 4: JIRA Trend Analysis
+  jira_trend_analysis:
+    name: "JIRA Trend Analysis"
+    name_cn: "JIRA趋势分析"
+    description: "Analyze JIRA issue trends over time"
+    priority: 85
+
+    trigger:
+      keywords_all:
+        - group1: ["jira", "issue"]
+        - group2: ["trend", "over time", "timeline", "趋势"]
+
+    tasks:
+      - task_id: "query_jira"
+        tool: "query_jira_issues"
+        parameters:
+          component:
+            source: "query"
+            extractor: "regex"
+            pattern: "S\\d+"
+          status:
+            source: "query"
+            extractor: "keyword_match"
+            keywords:
+              - ["open"]: "Open"
+              - ["closed"]: "Closed"
+        output:
+          key: "jira_data"
+          type: "jira_issues"
+
+      - task_id: "create_trend_chart"
+        tool: "generate_line_chart"
+        depends_on: ["query_jira"]
+        parameters:
+          data:
+            source: "task_output"
+            task_id: "query_jira"
+            transform:
+              from_type: "jira_issues"
+              to_type: "chart_data"
+              strategy: "by_status"
+          title:
+            source: "static"
+            value: "JIRA Issue Trend"
+          xlabel:
+            source: "static"
+            value: "Time"
+          ylabel:
+            source: "static"
+            value: "Issue Count"
+        output:
+          key: "trend_chart"
+          type: "chart_image"
+
+    output_format:
+      template: |
+        📈 **JIRA Trend Analysis**
+
+        {jira_data.formatted_report}
+
+        📉 Trend Chart: {trend_chart.chart_url}
+
+  # Rule 5: Device Mapping + Chart
+  device_mapping_chart:
+    name: "Device Mapping + Chart"
+    name_cn: "设备映射 + 图表"
+    description: "Query device mappings and visualize"
+    priority: 80
+
+    trigger:
+      keywords_all:
+        - group1: ["device", "设备", "du"]
+        - group2: ["chart", "visualize", "图表"]
+
+    tasks:
+      - task_id: "get_devices"
+        tool: "DU_Name_IP_Mapping"
+        parameters:
+          device_name:
+            source: "query"
+            extractor: "regex"
+            pattern: "DU[_-]?\\w+"
+            required: false
+        output:
+          key: "device_data"
+          type: "device_mappings"
+
+      - task_id: "visualize_devices"
+        tool: "generate_pie_chart"
+        depends_on: ["get_devices"]
+        parameters:
+          data:
+            source: "task_output"
+            task_id: "get_devices"
+            transform:
+              from_type: "device_mappings"
+              to_type: "chart_data"
+              strategy: "by_status"
+          title:
+            source: "static"
+            value: "Device Status Distribution"
+        output:
+          key: "device_chart"
+          type: "chart_image"
+
+    output_format:
+      template: |
+        🖥️ **Device Mapping & Chart**
+
+        Found {device_data.mappings|length} devices.
+
+        📊 Status Chart: {device_chart.chart_url}
+
+  # Rule 6: Multi-Component Comparison
+  multi_component_comparison:
+    name: "Multi-Component Comparison"
+    name_cn: "多组件对比"
+    description: "Compare JIRA issues across multiple components"
+    priority: 75
+
+    trigger:
+      keywords_all:
+        - group1: ["compare", "comparison", "对比", "vs"]
+        - group2: ["jira", "issue", "component"]
+      patterns:
+        - "S\\d+.*S\\d+"  # Multiple component patterns
+
+    tasks:
+      # Task 1: Query first component
+      - task_id: "query_component_1"
+        tool: "query_jira_issues"
+        parameters:
+          component:
+            source: "query"
+            extractor: "regex"
+            pattern: "S\\d+"
+            index: 0  # First match
+        output:
+          key: "comp1_data"
+          type: "jira_issues"
+
+      # Task 2: Query second component
+      - task_id: "query_component_2"
+        tool: "query_jira_issues"
+        parameters:
+          component:
+            source: "query"
+            extractor: "regex"
+            pattern: "S\\d+"
+            index: 1  # Second match
+        output:
+          key: "comp2_data"
+          type: "jira_issues"
+
+      # Task 3: Create comparison chart
+      - task_id: "compare_chart"
+        tool: "generate_bar_chart"
+        depends_on: ["query_component_1", "query_component_2"]
+        parameters:
+          data:
+            source: "multi_task"
+            task_ids: ["query_component_1", "query_component_2"]
+            aggregation: "merge_by_status"
+          title:
+            source: "static"
+            value: "Component Comparison"
+        output:
+          key: "comparison_chart"
+          type: "chart_image"
+
+    output_format:
+      template: |
+        🔍 **Multi-Component Comparison**
+
+        **Component 1:**
+        {comp1_data.formatted_report}
+
+        **Component 2:**
+        {comp2_data.formatted_report}
+
+        📊 Comparison Chart: {comparison_chart.chart_url}
+
+# Parameter Extractors Configuration / 参数提取器配置
+# Defines how to extract parameters from queries
+# 定义如何从查询中提取参数
+
+extractors:
+  regex:
+    description: "Extract using regular expression"
+    supports_index: true  # Can extract nth match
+
+  keyword_match:
+    description: "Match keywords to values"
+    case_sensitive: false
+
+  time_range:
+    description: "Extract time range expressions"
+    patterns:
+      - "last (\\d+) days": "extract_days"
+      - "last week": 7
+      - "last month": 30
+      - "last (\\d+) weeks": "extract_weeks"
+
+  static:
+    description: "Use static value"
+
+  task_output:
+    description: "Use output from previous task"
+
+  multi_task:
+    description: "Aggregate outputs from multiple tasks"
+    aggregation_methods:
+      - merge_by_status
+      - merge_by_vendor
+      - concat_lists
+
+# Transform Strategies / 转换策略
+# Additional transformation configurations
+# 额外的转换配置
+
+transform_strategies:
+  auto:
+    description: "Automatically infer best strategy from data"
+    priority: ["by_status", "by_vendor", "issue_list"]
+
+  by_status:
+    description: "Group/transform by status field"
+    preferred_for: ["jira_issues", "jira_statistics"]
+
+  by_vendor:
+    description: "Group/transform by vendor/component"
+    preferred_for: ["jira_statistics"]
+
+  issue_list:
+    description: "Process issue list directly"
+    preferred_for: ["jira_issues"]
+
+# Output Formatters / 输出格式化器
+# Template helpers and formatters
+# 模板辅助函数和格式化器
+
+formatters:
+  length_filter:
+    description: "Get length of array"
+    usage: "{data.items|length}"
+
+  upper_filter:
+    description: "Convert to uppercase"
+    usage: "{text|upper}"
+
+  lower_filter:
+    description: "Convert to lowercase"
+    usage: "{text|lower}"
+
+  format_number:
+    description: "Format number with commas"
+    usage: "{count|format_number}"
+
+# Validation Rules / 验证规则
+validation:
+  max_tasks_per_rule: 10
+  max_dependencies_per_task: 5
+  required_fields:
+    - trigger
+    - tasks
+    - output_format

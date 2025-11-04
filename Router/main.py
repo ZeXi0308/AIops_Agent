@@ -35,6 +35,10 @@ from Azure import llm as create_llm2
 from microsoft_token import get_MS_access_token
 from message_trimmer  import MessageTrimmer
 
+# === Universal Orchestrator imports ========================================
+from universal_orchestrator import UniversalOrchestrator, is_orchestration_query
+# ============================================================================
+
 # === helper imports for tool output ========================================
 import sys
 from pathlib import Path
@@ -49,6 +53,7 @@ from utils.tool_output import process_tool_message, sanitise_text_field, get_sum
 file_path = "/mnt/openai_key/shared_token.txt"
 subgraph_processing=False
 thread_state = {}
+universal_orchestrator = None  # Global orchestrator instance
 class Json_Schema(TypedDict):
     operation: str
     hardware_name: str
@@ -314,8 +319,21 @@ async def startup_event():
     global graph
     global subgraph
     global fault_tolerant_client
+    global universal_orchestrator  # Add global orchestrator
+
     mcp_tools = await fault_tolerant_client.get_tools()
-    all_tools = list(mcp_tools) 
+    all_tools = list(mcp_tools)
+
+    # Initialize Universal Orchestrator
+    try:
+        base_path = Path(__file__).parent
+        universal_orchestrator = UniversalOrchestrator(all_tools)
+        universal_orchestrator.load_metadata(str(base_path / "mcp_tools_metadata.yaml"))
+        universal_orchestrator.load_rules(str(base_path / "orchestration_rules.yaml"))
+        print(f"✅ Universal Orchestrator initialized with {len(universal_orchestrator.rules)} rules")
+    except Exception as e:
+        print(f"⚠️  Universal Orchestrator initialization failed: {e}")
+        universal_orchestrator = None 
 
 
     async def call_subgraph(state: State) -> State:
@@ -377,12 +395,13 @@ async def startup_event():
 
     async def info_node(state: State) -> State | Command:
         global global_log
+        global universal_orchestrator
         start_time = time.time()
-        
+
         # 🔧 BUG FIX 1: 每次进入 info_node 清空旧图片
         state["tool_images"] = []
-        
-        print("Thinking in the info nodem,",state["Thinking"])          
+
+        print("Thinking in the info nodem,",state["Thinking"])
         #llm = await create_llm()
         JWT_TOKEN=get_MS_access_token()
         #print("API_Key:", JWT_TOKEN)
@@ -393,6 +412,61 @@ async def startup_event():
             response = await llm.ainvoke("ping")
         except Exception as e:
             llm = await create_llm()
+
+        # ============================================================
+        # 🎭 Universal MCP Orchestration Detection
+        # ============================================================
+        human_msgs = [m for m in state["messages"] if isinstance(m, HumanMessage)]
+
+        # Only detect on first user input (not after interrupt)
+        last_ai_message = next((m for m in reversed(state["messages"]) if isinstance(m, AIMessage)), None)
+        is_first_input = last_ai_message is None or last_ai_message.content.strip() == ""
+
+        if human_msgs and is_first_input and universal_orchestrator:
+            latest_query = human_msgs[-1].content
+
+            # Check if orchestration is needed
+            if is_orchestration_query(latest_query, universal_orchestrator):
+                print(f"🎭 Orchestration detected for query: {latest_query[:50]}...")
+
+                try:
+                    # Execute orchestration
+                    orchestration_result = await universal_orchestrator.orchestrate(
+                        query=latest_query,
+                        llm=llm
+                    )
+
+                    if orchestration_result and orchestration_result.get("orchestration_executed"):
+                        print(f"✅ Orchestration completed: {orchestration_result['tasks_count']} tasks executed")
+
+                        formatted_output = orchestration_result["formatted_output"]
+
+                        # Update global_log
+                        global_log["AI_Response"].append(formatted_output)
+                        global_log["Thinking"].append(
+                            f"🎭 Universal Orchestration: {orchestration_result['rule_matched']}, "
+                            f"{orchestration_result['tasks_count']} tasks executed"
+                        )
+
+                        # Construct response message
+                        response_message = AIMessage(content=formatted_output)
+
+                        # Return orchestration result (no State structure changes)
+                        return {
+                            "messages": state["messages"] + [response_message],
+                            "subgraph": state.get("subgraph", "false"),
+                            "Thinking": state.get("Thinking", "") + f"\n\n🎭 Orchestration: {orchestration_result['rule_matched']}\n",
+                            "AI_Response": formatted_output,
+                            "tool_images": state.get("tool_images", []),
+                        }
+
+                except Exception as e:
+                    print(f"⚠️  Orchestration failed: {e}, falling back to normal LLM flow")
+                    # If orchestration fails, continue to normal flow
+
+        # ============================================================
+        # Normal LLM Flow (original logic)
+        # ============================================================
         llm_with_tools = llm.bind_tools(all_tools)
         print("LLM Config:", llm_with_tools.dict())
         if not any(isinstance(m, SystemMessage) for m in state["messages"]):
